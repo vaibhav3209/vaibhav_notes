@@ -1,0 +1,24 @@
+# MkDocs build output
+site/
+
+# MkDocs cache (if using plugins that cache)
+.cache/
+
+# Python
+__pycache__/
+
+# Virtual environments
+myenv/
+
+
+# Editor/IDE
+.vscode/
+.idea/
+
+
+# Environment variables (if you ever add config secrets)
+.env
+.env.local
+
+# Logs
+*.log
