@@ -2,6 +2,13 @@ site_name: Vaibhav Notes
 site_url: ""
 use_directory_urls: false
 
+#................................
+# Themes Available
+#     name: material
+#     name: readthedocs
+#     name: simple-blog
+#     name: torillic
+#................................
 theme:
   name: material
   features:
@@ -27,3 +34,5 @@ nav:
   - Home: index.md
   - SQL:
       - Null Semantics: SQL/NULL_SEMANTICS.md
+  - DVER:
+      - First M.D.T. : DVER/First_MDT.md
