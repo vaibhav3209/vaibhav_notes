@@ -125,7 +125,21 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
     
   
 </form>
@@ -658,7 +672,7 @@
   <span class="md-ellipsis">
     
   
-    DVER
+    EEDM
   
 
     
@@ -674,7 +688,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    DVER
+    EEDM
   
 
           </label>
@@ -997,6 +1011,8 @@ columns, similar to a spreadsheet.</li>
 <span class="c1"># Create a list containing the vectors and data frame</span>
 <span class="n">my_list</span> <span class="o">&lt;-</span><span class="nb">list</span><span class="p">(</span><span class="n">Ages</span> <span class="o">=</span> <span class="n">ages</span><span class="p">,</span> <span class="n">Names</span> <span class="o">=</span> <span class="n">names</span><span class="p">,</span> <span class="n">Scores</span> <span class="o">=</span> <span class="n">scores</span><span class="p">)</span>
 </code></pre></div></p>
+<div class="page-marker"></div>
+
 <h5 id="7-discuss-role-of-ggplot2-themes-to-enhance-the-readability-of-complex-graphs">7. Discuss role of ggplot2 themes to enhance the readability of complex graphs.</h5>
 <p>Ans.</p>
 <p>In ggplot2, themes control non-data elements like background, gridlines, fonts, and
@@ -1137,6 +1153,8 @@ decisions based on unreliable information.</li>
 overgeneralization, poor statistical representation, color interpretation issues, neglecting context, and a false
 sense of confidence. Careful consideration of data sufficiency is essential for accurate visual representation
 and analysis.</p>
+<div class="page-marker"></div>
+
 <h5 id="13-evaluate-the-relationship-between-three-variables-using-a-3d-scatter-plot">13. Evaluate the relationship between three variables using a 3D scatter plot.</h5>
 <p>Ans. 
 A 3D scatter plot allows for the visualization of relationships among three variables simultaneously, providing
@@ -1227,6 +1245,8 @@ careful consideration of its limitations is essential for accurate interpretatio
     
     
       <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../javascripts/notebook-toggle.js"></script>
       
     
   </body>
