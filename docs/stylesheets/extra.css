@@ -1,3 +1,6 @@
+/*Import for Google Font: KALAM*/
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap');
+
 .notes-row {
   display: flex;
   flex-wrap: wrap;
@@ -54,4 +57,91 @@
 .note-red {
   color: #d32f2f;
   font-weight: 600;
+}
+
+
+/*CSS for NOTEBOOK - MODE by Claude 07 Sept, 2026*/
+
+/* For button at fixed position in every page*/
+#notebook-toggle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  z-index: 1000;
+  transition: transform 0.15s ease;
+}
+
+#notebook-toggle:hover {
+  transform: scale(1.08);
+}
+
+
+/* Notebook mode: paper background + margins */
+.notebook-mode .md-content {
+  background-color: #ffffff;
+  padding-left: 24px;
+  padding-top: 40px;
+}
+
+/* Hide raw page markers, they only exist for JS to split on */
+.notebook-mode .page-marker {
+  display: none;
+}
+
+.notebook-mode .notebook-page {
+  display: none;
+}
+
+.notebook-mode .notebook-page.active {
+  display: block;
+}
+
+.notebook-pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  font-family: 'Kalam', cursive;
+}
+
+.notebook-pager button {
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.notebook-pager button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.notebook-pager .page-count {
+  font-size: 0.95rem;
+}
+
+
+/* Notebook mode: font */
+.notebook-mode .md-content,
+.notebook-mode .md-content * {
+  font-family: 'Kalam', cursive;
+}
+
+/* Keep code blocks readable — don't apply handwriting font there */
+.notebook-mode .md-content pre,
+.notebook-mode .md-content code {
+  font-family: var(--md-code-font, monospace);
 }

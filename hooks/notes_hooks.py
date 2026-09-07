@@ -17,6 +17,15 @@ ROW_GROUP_PATTERN = re.compile(
 )
 
 
+PAGE_BREAK_PATTERN = re.compile(r"::page break::")
+
+
+
+def replace_page_markers(text: str) -> str:
+    text = PAGE_BREAK_PATTERN.sub('<div class="page-marker"></div>', text)
+    return text
+
+
 def replace_red(text: str) -> str:
     return RED_PATTERN.sub(r'<span class="note-red">\1</span>', text)
 
@@ -52,5 +61,6 @@ def on_page_markdown(markdown, page, config, files):
     text = replace_red(text)
     text = replace_boxes(text)
     text = replace_arrows(text)
+    text = replace_page_markers(text)
     text = wrap_rows(text)
     return text
