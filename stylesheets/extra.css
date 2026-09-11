@@ -1,5 +1,3 @@
-/*Import for Google Font: KALAM*/
-@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap');
 
 .notes-row {
   display: flex;
@@ -9,7 +7,15 @@
   margin: 1.5rem 0;
 }
 
+@media (max-width: 600px) {
+  .notes-row {
+    flex-direction: column;
+  }
+}
+
+/*
 .note-box {
+    flex: 1 1 0;
   border: 1.5px solid var(--md-default-fg-color--light, #444);
   border-radius: 6px;
   padding: 0.9rem 1.1rem;
@@ -17,24 +23,24 @@
   box-sizing: border-box;
 }
 
+
 .note-box.pos-left {
-  flex: 1 1 0;
   order: 1;
 }
 
-.note-box.pos-mid {
-  flex: 1 1 0;
-  order: 2;
-}
 
 .note-box.pos-right {
-  flex: 1 1 0;
   order: 3;
 }
+*/
 
-.note-box.pos-full {
-  flex: 1 1 100%;
-  order: 4;
+.note-box {
+  flex: 1 1 0;
+  border: 1.5px solid var(--md-default-fg-color--light, #444);
+  border-radius: 6px;
+  padding: 0.9rem 1.1rem;
+  background: var(--md-code-bg-color, #f5f5f5);
+  box-sizing: border-box;
 }
 
 .note-box-content {
@@ -44,64 +50,53 @@
   white-space: pre-wrap;
 }
 
-.note-arrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.8rem;
-  min-width: 2.5rem;
-  order: 2;
-  color: var(--md-default-fg-color--light, #666);
-}
 
 .note-red {
   color: #d32f2f;
   font-weight: 600;
 }
 
-
-/*CSS for NOTEBOOK - MODE by Claude 07 Sept, 2026*/
-
-/* For button at fixed position in every page*/
-#notebook-toggle {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  border: none;
-  background-color: var(--md-primary-fg-color);
-  color: var(--md-primary-bg-color);
-  font-size: 22px;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-  z-index: 1000;
-  transition: transform 0.15s ease;
+.note-blue {
+  color: #1565c0;
+  font-weight: 600;
 }
 
-#notebook-toggle:hover {
-  transform: scale(1.08);
+/*
+............................
+CSS for NOTEBOOK - MODE by Claude 07 Sept, 2026
+............................
+*/
+
+/* Hide the `Contents` from home page and their blockquotes */
+body:has(nav a.current[href="index.html"]) main.torillic-page h3,h4,
+body:has(nav a.current[href="index.html"]) blockquote.torillic-toc
+ {
+  display: none;
 }
 
+
+/* Original torillic have 2 columns per page ,so set it to 1  */
+.torillic-page {
+  column-count: 1 !important;
+  columns: unset !important;
+}
 
 /* Notebook mode: paper background + margins */
-.notebook-mode .md-content {
-  background-color: #ffffff;
+.torillic-page {
   padding-left: 24px;
   padding-top: 40px;
 }
 
 /* Hide raw page markers, they only exist for JS to split on */
-.notebook-mode .page-marker {
+.page-marker {
   display: none;
 }
 
-.notebook-mode .notebook-page {
-  display: none;
+.notebook-page {
+ display: block !important;
 }
 
-.notebook-mode .notebook-page.active {
+notebook-page.active {
   display: block;
 }
 
@@ -135,13 +130,13 @@
 
 
 /* Notebook mode: font */
-.notebook-mode .md-content,
-.notebook-mode .md-content * {
+.torillic-page,
+.torillic-page * {
   font-family: 'Kalam', cursive;
 }
 
 /* Keep code blocks readable — don't apply handwriting font there */
-.notebook-mode .md-content pre,
-.notebook-mode .md-content code {
-  font-family: var(--md-code-font, monospace);
+.torillic-page pre,
+.torillic-page code {
+  font-family: var(monospace);
 }

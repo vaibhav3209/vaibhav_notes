@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>DVER - Vaibhav Notes</title>
+  <link rel="icon" type="image/x-icon" href="../../css/logo.png">
+  <link href="../../css/torillic.css" rel="stylesheet">
+  <link href="../../stylesheets/extra.css" rel="stylesheet">
+  <style>
+    .torillic-background {
+      
+    }
+  </style>
+  <script>
+    function toggleSpoiler(element) {
+      // add/remove "hidden" class
+      if (element.classList.contains("hidden")) {
+        element.classList.remove("hidden");
+      } else {
+        element.classList.add("hidden");
+      }
+    }
+  </script>
+</head>
+
+<body class="torillic-background">
+  <header class="torillic-header">
+    <h1>Vaibhav Notes</h1>
+    <nav>
+      
+      
+      <a class="" href="../../index.html">Home</a>
+      
+      
+      
+      <a class="" href="../sql/index.html">SQL</a>
+      
+      
+      
+      <a class="current" href="First_MDT.html">DVER</a>
+      
+      
+      
+      <a class="" href="../EEDM/First_MDT.html">EEDM</a>
+      
+      
+    </nav>
+  </header>
+  <main class="torillic-page">
+    
+    <h5 id="1-list-data-types-available-in-r-and-provide-one-example-of-each-ty">1. List data types available in R and provide one example of each tyре.</h5>
+<p>Ans. </p>
+<ul>
+<li>Numeric:  Set of all real numbers , "numeric_value &lt;-3.14"</li>
+<li>Integer:  Set of all integers,       "integer_value &lt;- 42L"</li>
+<li>Logical:  TRUE and FALSE,            "logical_value &lt;- TRUE"</li>
+<li>Complex:  Set of complex numbers,    "complex_value &lt;- 1+2i"</li>
+<li>Character:                            "character value &lt;- "Hello Geeks"</li>
+<li>raw:      as.raw(),                   "single_raw &lt;- as.raw(255)"</li>
+</ul>
+<h5 id="2-define-univariate-graphs">2. Define univariate graphs.</h5>
+<p>Ans.</p>
+<p>Univariate graphs are visual representations that display the distribution 
+of a single variable. They help in understanding the characteristics of one
+variable, such as its central tendency, spread, and shape. Common types include
+histograms, box plots, and bar charts. These graphs focus on summarizing data 
+related to one variable only.</p>
+<h5 id="3-explain-the-structure-and-use-of-arrays-in-r">3. Explain the structure and use of arrays in R.</h5>
+<p>Ans.</p>
+<p>In R, arrays are multi-dimensional data structures that store elements of the 
+same data type (numeric, character,etc.). Arrays are created using the array()
+function and are used for mathematical operations, data manipulation, and
+organizing data systematically.</p>
+<h5 id="4-discuss-the-types-of-graphs-that-can-be-created-in-r">4. Discuss the types of graphs that can be created in R.</h5>
+<p>Ans.</p>
+<p>R supports various graph types, including:</p>
+<ol>
+<li>Bar graphs for categorical data.</li>
+<li>Histograms for frequency distribution.</li>
+<li>Box plots for statistical summaries.</li>
+<li>Scatter plots for relationships between variables.</li>
+<li>Line graphs for trends over time.</li>
+</ol>
+<h5 id="5-illustrate-bar-graphs-and-histograms-in-terms-of-data-representation">5. Illustrate bar graphs and histograms in terms of data representation.</h5>
+<p>Ans.</p>
+<p>Bar Graphs:</p>
+<ul>
+<li>Definition: Bar graphs display categorical data with rectangular bars representing different
+   categories.</li>
+<li>Usage: Each bar's height corresponds to the frequency or value of the category, making it easy
+   to compare different groups visually. For example, a bar graph can show the sales figures for different products.</li>
+</ul>
+<p>Histograms:</p>
+<ul>
+<li>Definition: Histograms represent the distribution of continuous numerical data by dividing the
+   data into intervals (bins) and counting the frequency of data points within each bin.</li>
+<li>Usage: The height of each bar reflects the number of observations in each interval, allowing for
+   the visualization of data distribution, skewness, and central tendency. It is used for displaying
+   the distribution of continuous data.
+   For example, a histogram can illustrate the distribution of exam scores among students.</li>
+</ul>
+<h5 id="6-demonstrate-the-structure-of-a-list-that-contains-vectors-and-data-frames">6. Demonstrate the structure of a list that contains vectors and data frames.</h5>
+<p>Ans.</p>
+<ul>
+<li>List: A list can contain elements of different types and sizes, making it suitable for storing heterogeneous data.</li>
+<li>Vectors: These are one-dimensional arrays that hold elements of the same type, such as numeric or character
+data.</li>
+<li>Data Frames: These are two-dimensional, table-like structures that can hold different types of data across
+columns, similar to a spreadsheet.</li>
+</ul>
+<p>Example : 
+<div class="highlight"><pre><span></span><code><span class="c1"># Create vectors</span>
+<span class="n">ages</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">names</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="s2">"Alice"</span><span class="p">,</span> <span class="s2">"Bob"</span><span class="p">,</span> <span class="s2">"Charlie"</span><span class="p">)</span>
+
+<span class="c1"># Create a data frame</span>
+<span class="n">scores</span> <span class="o">&lt;-</span> <span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span>
+<span class="n">Subject</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s2">"Math"</span><span class="p">,</span> <span class="s2">"Science"</span><span class="p">,</span> <span class="s2">"English"</span><span class="p">),</span>
+<span class="n">Score</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mi">85</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">95</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># Create a list containing the vectors and data frame</span>
+<span class="n">my_list</span> <span class="o">&lt;-</span><span class="nb">list</span><span class="p">(</span><span class="n">Ages</span> <span class="o">=</span> <span class="n">ages</span><span class="p">,</span> <span class="n">Names</span> <span class="o">=</span> <span class="n">names</span><span class="p">,</span> <span class="n">Scores</span> <span class="o">=</span> <span class="n">scores</span><span class="p">)</span>
+</code></pre></div></p>
+<div class="page-marker"></div>
+
+<h5 id="7-discuss-role-of-ggplot2-themes-to-enhance-the-readability-of-complex-graphs">7. Discuss role of ggplot2 themes to enhance the readability of complex graphs.</h5>
+<p>Ans.</p>
+<p>In ggplot2, themes control non-data elements like background, gridlines, fonts, and
+legends. They enhance readability of complex graphs by reducing clutter and
+highlighting key insights. Built-in themes (theme_bw, theme_minimal, etc.)
+or custom themes improve clarity, making visualizations more professional,
+interpretable and effective for data communication.</p>
+<h5 id="8-describe-following-base-r-graphics-bar-chart-pie-chart-and-line-chart">8.  Describe following base R graphics -bar chart, pie chart, and line chart</h5>
+<p>Ans. </p>
+<ul>
+<li>
+<p>Bar Chart:
+A bar chart represents categorical data using rectangular bars with lengths proportional to the frequencies. It is useful for comparing
+categories.</p>
+</li>
+<li>
+<p>Pie Chart:
+A pie chart shows proportions of categories as slices of a circle. It is best suited for visualizing percentage contributions.</p>
+</li>
+<li>
+<p>Line Chart:
+A line chart is generally used for continuous or time-series data, showing trends and changes over an interval.</p>
+</li>
+</ul>
+<h5 id="9-apply-r-data-frames-to-store-student-details-roll-no-name-marks-demonstrate-code-to">9. Apply R data frames to store student details (Roll No, Name, Marks). Demonstrate code to:</h5>
+<h5 id="a-display-names-of-students-scoring-more-than-75">a) Display names of students scoring more than 75.</h5>
+<h5 id="b-add-a-new-column-grade-using-conditional-logic">b) Add a new column 'Grade' using conditional logic.</h5>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create data frame of student details</span>
+<span class="n">students</span> <span class="o">&lt;-</span> <span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span>
+<span class="n">RollNo</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">105</span><span class="p">),</span>
+<span class="n">Name</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s2">"Amit"</span><span class="p">,</span> <span class="s2">"Neha"</span><span class="p">,</span> <span class="s2">"Ravi"</span><span class="p">,</span> <span class="s2">"Priya"</span><span class="p">,</span> <span class="s2">"Karan"</span><span class="p">),</span>
+<span class="n">Marks</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mi">88</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">)</span>
+<span class="p">)</span>
+
+
+<span class="c1">#a) Display names of students scoring more than 75</span>
+<span class="n">high_scorers</span> <span class="o">&lt;-</span> <span class="n">students</span><span class="err">$</span><span class="n">Name</span><span class="p">[</span><span class="n">students</span><span class="err">$</span><span class="n">Marks</span> <span class="o">&gt;</span> <span class="mi">75</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Students scoring more than 75:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">high_scorers</span><span class="p">)</span>
+
+<span class="c1">#b) Add new column 'Grade' using conditional logic</span>
+<span class="n">studentsSGrade</span> <span class="o">&lt;-</span> <span class="n">ifelse</span><span class="p">(</span><span class="n">students</span><span class="err">$</span><span class="n">Marks</span> <span class="o">&gt;=</span> <span class="mi">85</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">,</span>
+<span class="n">ifelse</span><span class="p">(</span><span class="n">students</span><span class="err">$</span><span class="n">Marks</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">))</span>
+
+<span class="c1">#Display updated data frame</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Student details with Grades:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">students</span><span class="p">)</span>
+</code></pre></div>
+<h5 id="10-apply-ggplot2-features-including-aesthetic-mappings-and-facets-using-the-built-in-mpg-dataset">10.  Apply ggplot2 features including aesthetic mappings and facets using the built-in mpg dataset.</h5>
+<ul>
+<li>a) Create a scatter plot of displ vs. hwy, mapped with color = class and size = cyl.</li>
+<li>b) Add facets by drv</li>
+<li>c) Use summary() function to provide statistical overview of a given dataset.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">#Load ggplot2</span>
+<span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+
+<span class="c1">#a) Scatter plot of displ vs hwy with color=class and size=cyl</span>
+<span class="n">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">class</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">cyl</span><span class="p">))</span> <span class="o">+</span>
+<span class="n">geom_point</span><span class="p">()</span><span class="o">+</span>
+<span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">"Displacement vs Highway Mileage"</span><span class="p">,</span>
+<span class="n">x</span><span class="o">=</span> <span class="s2">"Engine Displacement (liters)"</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">"Highway MPG"</span><span class="p">)</span>
+
+<span class="c1">#b) Add facets by 'dry</span>
+<span class="n">ggplot</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">class</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">cyl</span><span class="p">))</span> <span class="o">+</span>
+<span class="n">geom_point</span><span class="p">()</span><span class="o">+</span>
+<span class="n">facet_wrap</span><span class="p">(</span><span class="o">~</span><span class="n">drv</span><span class="p">)</span> <span class="o">+</span>
+<span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">"Displacement vs Highway MPG Faceted by Drive Type"</span><span class="p">)</span>
+
+<span class="c1">#c) Statistical overview of dataset</span>
+<span class="n">summary</span><span class="p">(</span><span class="n">mpg</span><span class="p">)</span>
+</code></pre></div>
+<h5 id="11-apply-ggplot2-features-including-annotations-zooming-and-scales-using-the-built-in-diamonds-dataset">11. Apply ggplot2 features including annotations, zooming and scales using the built-in diamonds dataset.</h5>
+<ul>
+<li>a) Create a scatter plot of carat vs. price.</li>
+<li>b) Add an annotation marking the diamond with maximum price.
+c) Use coord_cartesian() to zoom in on diamonds with price &lt; 20000.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">#Load library</span>
+<span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+
+<span class="c1">#a) Scatter plot of carat vs. price</span>
+<span class="n">p</span><span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">diamonds</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">carat</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">price</span><span class="p">))</span> <span class="o">+</span>
+<span class="n">geom_point</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">"blue"</span><span class="p">)</span> <span class="o">+</span>
+<span class="n">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">"Scatter Plot of Carat vs Price in Diamonds Dataset"</span><span class="o">.</span>
+<span class="n">x</span> <span class="o">=</span> <span class="s2">"Carat"</span><span class="p">,</span>
+<span class="n">y</span><span class="o">=</span> <span class="s2">"Price"</span><span class="p">)</span>
+
+<span class="c1">#b) Add annotation for the diamond with maximum price</span>
+<span class="n">max_point</span><span class="o">&lt;-</span> <span class="n">diamonds</span><span class="p">[</span><span class="n">which</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">diamonds</span><span class="err">$</span><span class="n">price</span><span class="p">),</span> <span class="p">]</span>
+<span class="n">p</span><span class="o">&lt;-</span><span class="n">p</span><span class="o">+</span> <span class="n">geom_point</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">max_point</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">carat</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span> <span class="n">price</span><span class="p">),</span>
+<span class="n">color</span> <span class="o">=</span> <span class="s2">"red"</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span> <span class="o">+</span>
+<span class="n">annotate</span><span class="p">(</span><span class="s2">"text"</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">max_point</span><span class="err">$</span><span class="n">carat</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">max_pointSprice</span><span class="p">,</span>
+<span class="n">label</span> <span class="o">=</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"Max Price:"</span><span class="p">,</span> <span class="n">max_pointSprice</span><span class="p">),</span>
+<span class="n">vjust</span> <span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">"red"</span><span class="p">)</span>
+
+<span class="c1"># c) Zoom in on diamonds with price &lt; 20000</span>
+<span class="n">p</span><span class="o">&lt;-</span><span class="n">p</span><span class="o">+</span> <span class="n">coord_cartesian</span><span class="p">(</span><span class="n">ylim</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20000</span><span class="p">))</span> <span class="o">+</span>
+<span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">limits</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span> <span class="o">+</span> <span class="c1"># optional scaling of x-axis</span>
+<span class="n">theme_minimal</span><span class="p">()</span>
+</code></pre></div>
+<h5 id="12-evaluate-the-potential-errors-in-interpretation-when-using-a-heat-map-with-insufficient-data">12. Evaluate the potential errors in interpretation when using a heat map with insufficient data.</h5>
+<p>Ans.</p>
+<p>Potential Errors in Interpretation When Using a Heat Map with Insufficient Data
+1. Misleading Patterns:
+     Insufficient data can lead to the visualization of spurious patterns or trends that do not accurately reflect
+the underlying relationships. Random fluctuations in a small dataset may appear significant in a heat
+map, leading to incorrect conclusions.</p>
+<ol>
+<li>
+<p>Overgeneralization:
+Heat maps are often used to summarize data across categories or groups. With limited data, the results
+may be overgeneralized, ignoring variations within categories. This can misrepresent the diversity of the
+data and lead to erroneous interpretations about the entire dataset.</p>
+</li>
+<li>
+<p>Poor Statistical Representation:
+Heat maps typically rely on aggregating values, such as averages or sums. If the data sample is too
+small, these aggregated values may not represent the true characteristics of the population, resulting in
+misleading heat map visuals.</p>
+</li>
+<li>
+<p>Color Interpretation Issues:
+o The choice of color gradients in heat maps can significantly affect interpretation. With insufficient data,
+even slight changes in color can lead to overemphasized differences, misleading the viewer about the
+importance or significance of those differences.</p>
+</li>
+<li>Neglecting Context:
+o Without sufficient data, important contextual factors may be overlooked. Heat maps can simplify
+complex datasets, but insufficient data might fail to capture critical influences or correlations, leading to
+incomplete or flawed interpretations.</li>
+<li>False Sense of Confidence:
+• Viewers may perceive heat maps as definitive due to their visual appeal and clarity. When based on
+insufficient data, this can create a false sense of confidence in the findings, leading stakeholders to make
+decisions based on unreliable information.</li>
+</ol>
+<p>A heat map with insufficient data can lead to various errors in interpretation, including misleading patterns,
+overgeneralization, poor statistical representation, color interpretation issues, neglecting context, and a false
+sense of confidence. Careful consideration of data sufficiency is essential for accurate visual representation
+and analysis.</p>
+<div class="page-marker"></div>
+
+<h5 id="13-evaluate-the-relationship-between-three-variables-using-a-3d-scatter-plot">13. Evaluate the relationship between three variables using a 3D scatter plot.</h5>
+<p>Ans. 
+A 3D scatter plot allows for the visualization of relationships among three variables simultaneously, providing
+insights that cannot be captured in two dimensions. 
+1. Visualization of Relationships:
+A 3D scatter plot displays data points in a three-dimensional 'space, with each axis representing one of
+the three variables. This allows for a clear visualization of how the variables interact. For example, if
+variables are labeled as X, Y, and Z, each point in the plot representsa unique combination of these
+three variables.</p>
+<ol>
+<li>Identifying Correlations:
+• By examining the distribution of points in the 3D space, you can identify potential correlations among
+the variables. For instance, if the points tend to cluster along a diagonal or a plane, this may suggest a
+linear relationship between the variables. Conversely, a random scattering of points may indicate no
+correlation.</li>
+<li>Understanding Interactions:
+o 3D scatter plots enable the exploration of interactions between variables. For example, if you have a
+third variable that changes the relationship between the other two (e.g., moderating or mediating
+effects), this can be observed visually. Clusters of points might emerge at different levels of the third
+variable, suggesting varying relationships depending on its value.</li>
+<li>Detecting Outliers:
+A 3D scatter plot can help in identifying outliers that may skew the analysis. Points that lie far from the
+general distribution of the data can indicate anomalies or errors in data collection, which may warrant
+further investigation.</li>
+<li>Dynamic Interaction:
+• Utilizing interactive 3D scatter plot tools (e.g., Plotly, R's rgl package) allows for rotating and zooming
+in on the plot, providing a deeper understanding of the data structure and relationships. This interactivity
+can reveal patterns that might be missed in static plots.</li>
+<li>Limitations and Considerations:
+• While 3D scatter plots provide valuable insights, they can also be misleading. Over plotting can occur
+when many data points overlap, making it difficult to discern relationships. Additionally, viewers may
+struggle to accurately interpret depth and distances in 3D visualizations. It's important to complement
+the visual analysis with statistical measures, such as correlation coefficients, to confirm findings.</li>
+</ol>
+<p>A 3D scatter plot is a powerful tool for evaluating the relationships between three variables. It aids in visualizing
+correlations, understanding interactions, detecting outliers, and providing a dynamic exploration of data. However,
+careful consideration of its limitations is essential for accurate interpretation.</p>
+
+    
+    
+    
+    
+    
+  </main>
+  <script src="../../javascripts/pagination.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js"></script>
+  <script src="../../javascripts/mermaid-init.js"></script>
+  <script src="../../search/main.js"></script>
+</body>
+
+</html>
