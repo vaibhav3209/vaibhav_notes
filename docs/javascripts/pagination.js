@@ -1,14 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const body = document.body;
-
-  const btn = document.createElement("button");
-  btn.id = "notebook-toggle";
-  btn.title = "Toggle notebook view";
-  btn.innerHTML = "📓";
-  body.appendChild(btn);
 
   function buildNotebookPages() {
-    const container = document.querySelector('.md-content__inner');
+    const container = document.querySelector('.torillic-page');
     if (!container || container.dataset.paginated === 'true') return;
 
     const markers = Array.from(container.querySelectorAll('.page-marker'));
@@ -67,15 +60,5 @@ document.addEventListener("DOMContentLoaded", function () {
     container.dataset.paginated = 'true';
   }
 
-
-
-  btn.addEventListener("click", function () {
-    body.classList.toggle("notebook-mode");
-    const isOn = body.classList.contains("notebook-mode");
-    localStorage.setItem("notebook-mode", isOn ? "on" : "off");
-
-    if (isOn) {
-      buildNotebookPages();
-    }
-  });
+  buildNotebookPages();
 });
