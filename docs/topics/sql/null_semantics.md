@@ -8,16 +8,16 @@ SQL follows 3-valued logic:
 
 ## Some Logical Operations
 
-::box
+
 NOT UNKNOWN = UNKNOWN
 UNKNOWN AND UNKNOWN = UNKNOWN
 --- OR --- = ---
-::
 
-::box 
+
+ 
 TRUE AND UNKNOWN = UNKNOWN
 TRUE OR UNKNOWN = <Red>TRUE</Red>
-::
+
 
 
 
@@ -26,17 +26,17 @@ TRUE OR UNKNOWN = <Red>TRUE</Red>
 
 WHERE `only filters` rows that are 'TRUE'.
 
-::box 
+ 
 ```sql
 ---
 ```
-::
 
-::box 
+
+ 
 Improvement:
 %sql
 - - -
-::
+
 
 
 
@@ -51,14 +51,14 @@ Improvement:
 
 
 # single likhenge to poora ayega 
-::box 
+ 
 FALSE AND UNKNOWN = <Red>FALSE</Red>
 FALSE OR UNKNOWN = UNKNOWN
-::
+
 
 ## Flow chart
 
-::box
+
 
 ```mermaid
 flowchart TD
@@ -69,4 +69,5 @@ flowchart TD
     A --> F[TQL]
 ```
 
-::
+
+

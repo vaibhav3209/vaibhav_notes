@@ -1,30 +1,35 @@
 site_name: Vaibhav Notes
-site_url: ""
+site_url: https://vaibhav3209.github.io/vaibhav_notes/
+repo_url: https://github.com/vaibhav3209/vaibhav_notes
 use_directory_urls: false
 
-#................................
-# Themes Available (that are good but require different setup)
-#     name: material
-#     name: readthedocs
-#     name: simple-blog
-#     name: torillic
-#................................
 theme:
-  name: torillic
+  name: material
+
+  icon:
+    repo: fontawesome/brands/github
+
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
   features:
     - navigation.sections
     - navigation.expand
     - content.code.copy
-    -
+
 
 extra_css:
   - stylesheets/extra.css
 
-
-extra_javascript:
-  - javascripts/pagination.js
-  - https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js
-  - javascripts/mermaid-init.js
 
 markdown_extensions:
   - md_in_html
@@ -36,8 +41,6 @@ markdown_extensions:
             class: mermaid
             format: !!python/name:pymdownx.superfences.fence_code_format
 
-hooks:
-  - hooks/notes_hooks.py
 
 nav:
   - Home: index.md
