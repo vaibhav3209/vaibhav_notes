@@ -1,3 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://vaibhav3209.github.io/vaibhav_notes/index.html</loc>
+         <lastmod>2026-09-12</lastmod>
+    </url>
+    <url>
+         <loc>https://vaibhav3209.github.io/vaibhav_notes/topics/DVER/First_MDT.html</loc>
+         <lastmod>2026-09-12</lastmod>
+    </url>
+    <url>
+         <loc>https://vaibhav3209.github.io/vaibhav_notes/topics/EEDM/First_MDT.html</loc>
+         <lastmod>2026-09-12</lastmod>
+    </url>
+    <url>
+         <loc>https://vaibhav3209.github.io/vaibhav_notes/topics/sql/index.html</loc>
+         <lastmod>2026-09-12</lastmod>
+    </url>
+    <url>
+         <loc>https://vaibhav3209.github.io/vaibhav_notes/topics/sql/null_semantics.html</loc>
+         <lastmod>2026-09-12</lastmod>
+    </url>
 </urlset>
