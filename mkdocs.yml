@@ -31,10 +31,17 @@ extra_css:
   - stylesheets/extra.css
 
 
+extra_javascript:
+  - javascripts/note-collapse.js
+
 markdown_extensions:
   - md_in_html
-  - attr_list
+  - attr_list       # to refer css atributes like {.back to list}
   - tables
+  - admonition      # for !!! tip, !!! question
+  - pymdownx.details
+  - pymdownx.tabbed:
+        alternate_style: true
   - pymdownx.superfences:
         custom_fences:
           - name: mermaid
@@ -44,6 +51,8 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - SQL:  topics/sql/index.md
+  - SQL:
+      - NULL Semantics: topics/sql/null_semantics.md
+      - Leetcode + Concepts: topics/sql/leetcode_sql.md
   - DVER: topics/DVER/First_MDT.md
   - EEDM: topics/EEDM/First_MDT.md
