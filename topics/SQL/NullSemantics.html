@@ -1,0 +1,1696 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://vaibhav3209.github.io/vaibhav_notes/topics/SQL/NullSemantics.html">
+      
+      
+        <link rel="prev" href="Select.html">
+      
+      
+        <link rel="next" href="DifferenceBetween.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>NULL Semantics - Vaibhav Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#null-semantics-in-sql" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="Vaibhav Notes" class="md-header__button md-logo" aria-label="Vaibhav Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Vaibhav Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              NULL Semantics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/vaibhav3209/vaibhav_notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="Vaibhav Notes" class="md-nav__button md-logo" aria-label="Vaibhav Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Vaibhav Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/vaibhav3209/vaibhav_notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SQL
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clauses
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Clauses
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Select.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Select
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NULL Semantics
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="NullSemantics.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NULL Semantics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#null-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NULL logic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-nulls-in-where" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. NULLS in WHERE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-null-progression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. NULL Progression
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-null-in-count" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. NULL in COUNT()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-null-in-other-aggregates-sum-avg-min-max" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. NULL in Other Aggregates (SUM / AVG / MIN / MAX)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-null-in-group-by" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. NULL in GROUP BY
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-null-in-casewhen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. NULL in Case...When
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-null-in-subquery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. NULL in Subquery
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="DifferenceBetween.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Difference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="LeetcodeSQL.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Leetcode + Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DSA
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DSA
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DSA/LinkedList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LinkedList
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python/OOP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OOP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DVER/First_MDT.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DVER
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EEDM/First_MDT.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EEDM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#null-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NULL logic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-nulls-in-where" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. NULLS in WHERE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-null-progression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. NULL Progression
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-null-in-count" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. NULL in COUNT()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-null-in-other-aggregates-sum-avg-min-max" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. NULL in Other Aggregates (SUM / AVG / MIN / MAX)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-null-in-group-by" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. NULL in GROUP BY
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-null-in-casewhen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. NULL in Case...When
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-null-in-subquery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. NULL in Subquery
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="null-semantics-in-sql">NULL Semantics in SQL</h1>
+<h2 id="null-logic">NULL logic</h2>
+<ul>
+<li>
+<p>SQL conditions can result in <strong>3 outputs</strong>, not 2.</p>
+</li>
+<li>
+<p>SQL uses <strong>3-valued logic</strong>: <code>TRUE</code> / <code>FALSE</code> / <code>UNKNOWN</code>.</p>
+</li>
+<li>
+<p>If SQL can't determine whether a statement is True or False, it marks it <strong>UNKNOWN</strong>.</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Expression</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>True AND Unknown</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>Unknown AND Unknown</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>False OR Unknown</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>Unknown OR Unknown</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>Not Unknown</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>* True OR Unknown *</td>
+<td><strong>True</strong></td>
+</tr>
+<tr>
+<td>* False AND Unknown *</td>
+<td><strong>False</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="1-nulls-in-where">1. NULLS in WHERE</h2>
+<div class="admonition note">
+<p class="admonition-title">WHERE clause behavior</p>
+<p>The <code>WHERE</code> clause only keeps rows where the condition evaluates to <strong>TRUE</strong>. Rows evaluating to <code>FALSE</code> or <code>UNKNOWN</code> are filtered out.</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">A. city = NULL</label><label for="__tabbed_1_2">B. city = 'ABC'</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">city</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">table1</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span>
+
+<span class="c1">-- Result:  Returns 0 rows (only column name/header shows up)</span>
+<span class="c1">-- Reason:      Where city = NULL </span>
+<span class="w">    </span><span class="n">Becomes</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">  </span><span class="k">Where</span><span class="w"> </span><span class="k">Unknown</span><span class="w">        </span><span class="o">==&gt;&gt;</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="k">True</span>
+<span class="c1">-- Fix:     use IS NULL instead of = NULL</span>
+
+<span class="k">SELECT</span><span class="w"> </span><span class="n">city</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">table1</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">city</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">table1</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'ABC'</span><span class="p">;</span>
+
+<span class="c1">-- Returns only non-NULL matches</span>
+<span class="c1">-- If a row's city is NULL, that row is skipped</span>
+<span class="c1">-- Reason: city = 'ABC' -&gt; Unknown for NULL rows -&gt; logic becomes Unknown, but only for that row</span>
+
+<span class="cm">/*</span>
+<span class="cm">Improvement: explicitly include the NULL-valued rows too, if needed</span>
+<span class="cm">*/</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">city</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">table1</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'ABC'</span>
+<span class="w">   </span><span class="k">OR</span><span class="w"> </span><span class="n">city</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="2-null-progression">2. NULL Progression</h2>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w">  </span>
+<span class="w">    </span><span class="n">col1</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">col2</span><span class="p">,</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">col1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">col2</span>
+<span class="k">FROM</span><span class="w"> </span><span class="k">table_name</span><span class="p">;</span>
+
+<span class="c1">-- If either col1 or col2 is NULL, the whole row's result becomes NULL</span>
+<span class="c1">-- Examples:</span>
+<span class="c1">--   1 + NULL       -&gt; NULL</span>
+<span class="c1">--   NULL + NULL    -&gt; NULL</span>
+
+<span class="cm">/*</span>
+<span class="cm">Fix: use COALESCE to substitute a default value before adding</span>
+<span class="cm">*/</span>
+<span class="k">SELECT</span><span class="w"> </span>
+<span class="w">    </span><span class="k">COALESCE</span><span class="p">(</span><span class="n">col1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">COALESCE</span><span class="p">(</span><span class="n">col2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="k">table_name</span><span class="p">;</span>
+</code></pre></div>
+<h2 id="3-null-in-count">3. NULL in COUNT()</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Table1</label><label for="__tabbed_2_2">Table2</label><label for="__tabbed_2_3">Table2 — IS NULL / IS NOT NULL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">50K</td>
+</tr>
+<tr>
+<td style="text-align: left;">60K</td>
+</tr>
+<tr>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">10K</td>
+</tr>
+<tr>
+<td style="text-align: left;">NULL</td>
+</tr>
+<tr>
+<td style="text-align: left;">NULL</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">salary</span><span class="p">;</span>
+<span class="c1">-- =&gt; 6   (counts all rows, regardless of NULL)</span>
+
+<span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">salary</span><span class="p">;</span>
+<span class="c1">-- =&gt; 4   (0 is counted since it's a real value, only NULLs are excluded)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Salary2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">NULL</td>
+</tr>
+<tr>
+<td style="text-align: left;">NULL</td>
+</tr>
+<tr>
+<td style="text-align: left;">NULL</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">salary2</span><span class="p">;</span>
+<span class="c1">-- =&gt; 3   (counts all rows including NULLs)</span>
+
+<span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="n">salary2</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">salary2</span><span class="p">;</span>
+<span class="c1">-- =&gt; 0   (COUNT(column) only counts non-NULL values)</span>
+
+<span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">salary2</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">salary2</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="c1">-- =&gt; 0   (NULL != 0 evaluates to Unknown, so no row passes WHERE)</span>
+
+<span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="n">salary2</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">salary2</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">salary2</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="c1">-- =&gt; 0   (same reason: WHERE filters out all rows before COUNT runs)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Salary2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">NULL</td>
+</tr>
+<tr>
+<td style="text-align: left;">NULL</td>
+</tr>
+<tr>
+<td style="text-align: left;">NULL</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">salary2</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">salary2</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span>
+<span class="c1">-- =&gt; 3   (all 3 rows satisfy the filter, COUNT(*) counts them all)</span>
+
+<span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="n">salary2</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">salary2</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">salary2</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span>
+<span class="c1">-- =&gt; 0   (rows pass the filter, but salary2 itself is NULL in each,</span>
+<span class="c1">--         and COUNT(column) never counts NULL values)</span>
+
+<span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">salary2</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">salary2</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span>
+<span class="c1">-- =&gt; 0   (no row satisfies the filter, since every row is NULL)</span>
+
+<span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="n">salary2</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">salary2</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">salary2</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span>
+<span class="c1">-- =&gt; 0   (no rows pass the filter, so nothing to count)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="4-null-in-other-aggregates-sum-avg-min-max">4. NULL in Other Aggregates (SUM / AVG / MIN / MAX)</h2>
+<ul>
+<li>
+<p>For <code>SUM</code>, <code>AVG</code>, <code>MIN</code>, <code>MAX</code> — any row where the value is <code>NULL</code> is simply <strong>skipped</strong>; 
+    the result is computed only from the remaining (non-NULL) rows.</p>
+</li>
+<li>
+<p>Use <code>IFNULL</code> / <code>COALESCE</code> if you want NULLs treated as a value (e.g. <code>0</code>) instead of being skipped. 
+    — this will <strong>change</strong> what <code>AVG()</code> (and the others) return, since skipped rows no longer reduce the divisor.</p>
+</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Example 1</label><label for="__tabbed_3_2">Example 2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">NULL</td>
+</tr>
+<tr>
+<td style="text-align: left;">NULL</td>
+</tr>
+<tr>
+<td style="text-align: left;">NULL</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w">     </span><span class="k">FROM</span><span class="w"> </span><span class="n">salary</span><span class="p">;</span><span class="w">  </span><span class="c1">-- =&gt; 3</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">salary</span><span class="p">;</span><span class="w"> </span><span class="c1">-- =&gt; 0</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">salary</span><span class="p">;</span><span class="w">  </span><span class="c1">-- =&gt; NULL</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">salary</span><span class="p">;</span><span class="w">  </span><span class="c1">-- =&gt; NULL</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">MIN</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">salary</span><span class="p">;</span><span class="w">  </span><span class="c1">-- =&gt; NULL</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">MAX</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">salary</span><span class="p">;</span><span class="w">  </span><span class="c1">-- =&gt; NULL</span>
+<span class="c1">-- Reason: there are no non-NULL values left to aggregate over</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">500</td>
+</tr>
+<tr>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">NULL</td>
+</tr>
+<tr>
+<td style="text-align: left;">NULL</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w">      </span><span class="k">FROM</span><span class="w"> </span><span class="n">salary</span><span class="p">;</span><span class="w"> </span><span class="c1">-- =&gt; 4  (all rows, NULL included)</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">salary</span><span class="p">;</span><span class="w"> </span><span class="c1">-- =&gt; 2  (only the 0 and 500 rows)</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w">   </span><span class="k">FROM</span><span class="w"> </span><span class="n">salary</span><span class="p">;</span><span class="w"> </span><span class="c1">-- =&gt; 500   (0 + 500, NULLs skipped)</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w">   </span><span class="k">FROM</span><span class="w"> </span><span class="n">salary</span><span class="p">;</span><span class="w"> </span><span class="c1">-- =&gt; 250   (500 / 2, NOT 500 / 4)</span>
+
+<span class="k">SELECT</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="k">COALESCE</span><span class="p">(</span><span class="n">salary</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">salary</span><span class="p">;</span>
+<span class="c1">-- =&gt; 125   (500 / 4, NOT 500 / 2 -&gt; this is the actual behavior change)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="5-null-in-group-by">5. NULL in GROUP BY</h2>
+<ul>
+<li>
+<p>Rows with <code>NULL</code> in the <code>GROUP BY</code> column are <strong>not dropped</strong> 
+    — they get grouped together into their own single "NULL group".</p>
+</li>
+<li>
+<p>This matters for <code>COUNT()</code> and other aggregate corrections per group:
+    don't forget the NULL group exists and will show up as its own row in the result set.</p>
+</li>
+</ul>
+<h2 id="6-null-in-casewhen">6. NULL in Case...When</h2>
+<pre><code>| emp | Output    |
+|-----|-----------|
+| A   | 50000      |
+| B   | 60000      |
+| C   | NULL   |
+</code></pre>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">A. CASE WHEN</label><label for="__tabbed_4_2">B. salary = NULL (wrong way)</label><label for="__tabbed_4_3">C. CASE without ELSE</label><label for="__tabbed_4_4">D. CASE inside an aggregate</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">emp</span><span class="p">,</span>
+<span class="w">    </span><span class="k">CASE</span>
+<span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">50000</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'High'</span>
+<span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">50000</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Low'</span>
+<span class="w">        </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">'Unknown'</span>
+<span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">salary_band</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">emp</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>emp</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>High</td>
+</tr>
+<tr>
+<td>B</td>
+<td>High</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Unknown</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">emp</span><span class="p">,</span>
+<span class="w">    </span><span class="k">CASE</span>
+<span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Missing'</span><span class="w">   </span><span class="c1">-- ❌ never true</span>
+<span class="w">        </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">'Available'</span>
+<span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">salary_status</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">emp</span><span class="p">;</span>
+
+<span class="c1">-- salary = NULL always evaluates to Unknown,</span>
+<span class="c1">-- =&gt; the WHEN branch is never executed, for any row</span>
+
+<span class="cm">/*</span>
+<span class="cm">Fix: use IS NULL instead</span>
+<span class="cm">*/</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">emp</span><span class="p">,</span>
+<span class="w">    </span><span class="k">CASE</span>
+<span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'Missing'</span>
+<span class="w">        </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">'Available'</span>
+<span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">salary_status</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">emp</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>emp</th>
+<th>Output (wrong version)</th>
+<th>Output (fixed version)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>Available</td>
+<td>Available</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Available</td>
+<td>Available</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Available</td>
+<td>Missing</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">emp</span><span class="p">,</span>
+<span class="w">    </span><span class="k">CASE</span>
+<span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">50000</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'High'</span>
+<span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">salary_band</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">emp</span><span class="p">;</span>
+
+<span class="c1">-- Rows that don't satisfy any WHEN clause get NULL by default</span>
+<span class="c1">-- when there's no ELSE, i.e. it's equivalent to:</span>
+
+<span class="cm">/*</span>
+<span class="cm">BOTH QUERIES ARE SAME.</span>
+<span class="cm">*/</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">emp</span><span class="p">,</span>
+<span class="w">    </span><span class="k">CASE</span>
+<span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">50000</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'High'</span>
+<span class="w">        </span><span class="k">ELSE</span><span class="w"> </span><span class="k">NULL</span>
+<span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">salary_band</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">emp</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>emp</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>High</td>
+</tr>
+<tr>
+<td>B</td>
+<td>High</td>
+</tr>
+<tr>
+<td>C</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span>
+<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span>
+<span class="w">        </span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">END</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">count_missing_salary</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">emp</span><span class="p">;</span>
+
+<span class="c1">-- Trace, row by row (A=50k, B=60k, C=NULL):</span>
+<span class="c1">--   A -&gt; salary IS NULL is False -&gt; CASE returns NULL (no ELSE)</span>
+<span class="c1">--   B -&gt; salary IS NULL is False -&gt; CASE returns NULL (no ELSE)</span>
+<span class="c1">--   C -&gt; salary IS NULL is True  -&gt; CASE returns 1</span>
+
+
+<span class="c1">-- =&gt; COUNT(NULL, NULL, 1)</span>
+<span class="c1">-- COUNT(column) ignores NULLs, so only the 1 is counted</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>count_missing_salary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><a href="DifferenceBetween.html">See 2 difference between case...when vs Where</a></p>
+</div>
+</div>
+</div>
+<h2 id="7-null-in-subquery">7. NULL in Subquery</h2>
+<ul>
+<li>
+<p><code>IN</code>: if the subquery returns <code>NULL</code> among its results, 
+    rows that match one of the <em>other</em> (non-NULL) values are still selected fine </p>
+<p>The <code>NULL</code> in the list doesn't block a <code>TRUE</code> match.</p>
+</li>
+<li>
+<p><code>NOT IN</code>: <strong>the main culprit</strong> — if the subquery returns even a single <code>NULL</code>,
+    rows that would otherwise be excluded correctly can end up excluded entirely (no rows returned)
+     because the comparison chain turns <code>Unknown</code>.</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>empid</th>
+<th>dept_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>10</td>
+</tr>
+<tr>
+<td>2</td>
+<td>20</td>
+</tr>
+<tr>
+<td>3</td>
+<td>30</td>
+</tr>
+<tr>
+<td>4</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>dept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+</tr>
+<tr>
+<td>20</td>
+</tr>
+<tr>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">IN</label><label for="__tabbed_5_2">NOT IN (the problem)</label><label for="__tabbed_5_3">NOT IN -&gt;Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">dept_id</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">dept</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dept</span>
+<span class="p">);</span>
+
+<span class="c1">-- Evaluates to: dept_id IN (10, 20, NULL)</span>
+<span class="c1">-- A NULL in the list doesn't stop a real match from being TRUE</span>
+<span class="c1">-- =&gt; Returns rows for empid = 1 and empid = 2</span>
+
+<span class="cm">/*</span>
+<span class="cm">Using EXISTS (safer)</span>
+<span class="cm">*/</span>
+
+<span class="k">SELECT</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="n">e</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">dept</span><span class="w"> </span><span class="n">d</span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">dept_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">dept</span>
+<span class="p">);</span>
+<span class="c1">-- Same result: empid = 1 and empid = 2</span>
+<span class="c1">-- EXISTS just checks row existence, so a NULL in dept</span>
+<span class="c1">-- never even becomes part of the comparison</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">dept_id</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">dept</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dept</span>
+<span class="p">);</span>
+
+<span class="cm">/*</span>
+<span class="cm">Step-by-step evaluation for empid = 3 (dept_id = 30):</span>
+<span class="cm">  30 &lt;&gt; 10   -&gt; False</span>
+<span class="cm">  30 &lt;&gt; 20   -&gt; False</span>
+<span class="cm">  30 &lt;&gt; NULL -&gt; Unknown</span>
+
+<span class="cm">NOT IN is really: (30&lt;&gt;10) AND (30&lt;&gt;20) AND (30&lt;&gt;NULL)</span>
+<span class="cm">  =&gt; FALSE AND FALSE AND UNKNOWN</span>
+<span class="cm">  =&gt; UNKNOWN</span>
+
+<span class="cm">Since WHERE only keeps TRUE rows, this row is dropped.</span>
+<span class="cm">The SAME thing happens for every other row too, because</span>
+<span class="cm">every comparison chain includes "&lt;&gt; NULL" =&gt; Unknown.</span>
+
+<span class="cm">Result: NO ROWS RETURNED AT ALL (not even empid = 3, 4)</span>
+<span class="cm">*/</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="c1">-- Solution 1: Exclude NULLs from the subquery</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">dept_id</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">dept</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dept</span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">dept</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+<span class="p">);</span>
+
+<span class="c1">-- Now the list is just (10, 20) -&gt; no Unknown in the chain</span>
+<span class="c1">-- =&gt; Correctly returns empid = 3 (dept_id = 30)</span>
+
+
+<span class="c1">-- Solution 2: Use NOT EXISTS instead of NOT IN</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="n">e</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">dept</span><span class="w"> </span><span class="n">d</span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">dept_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">dept</span>
+<span class="p">);</span>
+
+<span class="c1">-- NOT EXISTS checks row-by-row existence directly,</span>
+<span class="c1">-- so a NULL sitting in dept never poisons the whole condition</span>
+<span class="c1">-- =&gt; Correctly returns empid = 3 (and empid = 4, since NULL dept_id</span>
+<span class="c1">--    also never matches any dept.dept value)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/note-collapse.js"></script>
+      
+    
+  </body>
+</html>

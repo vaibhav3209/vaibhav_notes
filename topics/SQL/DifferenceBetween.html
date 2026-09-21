@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://vaibhav3209.github.io/vaibhav_notes/topics/sql/null_semantics.html">
+        <link rel="canonical" href="https://vaibhav3209.github.io/vaibhav_notes/topics/SQL/DifferenceBetween.html">
       
       
-        <link rel="prev" href="../../index.html">
+        <link rel="prev" href="NullSemantics.html">
       
       
-        <link rel="next" href="leetcode_sql.html">
+        <link rel="next" href="LeetcodeSQL.html">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>NULL Semantics - Vaibhav Notes</title>
+        <title>Difference - Vaibhav Notes</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#null-semantics-in-sql" class="md-skip">
+        <a href="#difference-between" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              NULL Semantics
+              Difference
             
           </span>
         </div>
@@ -338,6 +338,121 @@
                 
   
   
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Clauses
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Clauses
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Select.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Select
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="NullSemantics.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NULL Semantics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -357,7 +472,7 @@
   <span class="md-ellipsis">
     
   
-    NULL Semantics
+    Difference
   
 
     
@@ -368,14 +483,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="null_semantics.html" class="md-nav__link md-nav__link--active">
+      <a href="DifferenceBetween.html" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    NULL Semantics
+    Difference
   
 
     
@@ -401,41 +516,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#some-logical-operations" class="md-nav__link">
+  <a href="#1-where-vs-case-when" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Some Logical Operations
+        1. Where vs Case When
       
     </span>
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-null-in-where" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. NULL in WHERE
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. NULL in WHERE">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#laptop-vs-desktop" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Laptop vs. Desktop
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -455,7 +542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="leetcode_sql.html" class="md-nav__link">
+      <a href="LeetcodeSQL.html" class="md-nav__link">
         
   
   
@@ -463,6 +550,184 @@
     
   
     Leetcode + Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DSA
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DSA
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DSA/LinkedList/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LinkedList
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python/OOP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OOP
   
 
     
@@ -564,41 +829,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#some-logical-operations" class="md-nav__link">
+  <a href="#1-where-vs-case-when" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Some Logical Operations
+        1. Where vs Case When
       
     </span>
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-null-in-where" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. NULL in WHERE
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. NULL in WHERE">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#laptop-vs-desktop" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Laptop vs. Desktop
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -622,68 +859,26 @@
   
 
 
-<h1 id="null-semantics-in-sql">NULL Semantics in SQL</h1>
-<p>SQL follows 3-valued logic:</p>
-<ul>
-<li>TRUE</li>
-<li>UNKNOWN</li>
-<li>FALSE</li>
-</ul>
-<h2 id="some-logical-operations">Some Logical Operations</h2>
-<p>NOT UNKNOWN = UNKNOWN
-UNKNOWN AND UNKNOWN = UNKNOWN
---- OR --- = ---</p>
-<p>TRUE AND UNKNOWN = UNKNOWN
-TRUE OR UNKNOWN = <Red>TRUE</Red></p>
-<h2 id="1-null-in-where">1. NULL in WHERE</h2>
-<p>WHERE <code>only filters</code> rows that are 'TRUE'.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">---</span>
-</code></pre></div>
-<p>Improvement:
-%sql</p>
-<hr />
-<h3 id="laptop-vs-desktop"><strong>Laptop vs. Desktop</strong></h3>
+<h1 id="difference-between">Difference Between</h1>
+<h2 id="1-where-vs-case-when">1. Where vs Case When</h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Feature</th>
-<th style="text-align: left;">Laptop</th>
-<th style="text-align: left;">Desktop</th>
+<th>Where</th>
+<th>Case When</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>Portability</strong></td>
-<td style="text-align: left;">Highly portable and easy to carry.</td>
-<td style="text-align: left;">Heavy and designed for a fixed location.</td>
+<td><strong><em>Filters</em></strong> only rows that are True.</td>
+<td><strong><em>Exceutes</em></strong> only rows that are True.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Power Source</strong></td>
-<td style="text-align: left;">Runs on a rechargeable internal battery.</td>
-<td style="text-align: left;">Requires a constant wall outlet connection.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Upgradability</strong></td>
-<td style="text-align: left;">Limited to RAM and storage upgrades.</td>
-<td style="text-align: left;">Highly customizable with easily swappable parts.</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Cost Efficiency</strong></td>
-<td style="text-align: left;">More expensive for equivalent performance.</td>
-<td style="text-align: left;">Offers higher performance per dollar spent.</td>
+<td>Rejects False and Unknowns.</td>
+<td>Skips False and Unknowns.</td>
 </tr>
 </tbody>
 </table>
-<h1 id="single-likhenge-to-poora-ayega">single likhenge to poora ayega</h1>
-<p>FALSE AND UNKNOWN = <Red>FALSE</Red>
-FALSE OR UNKNOWN = UNKNOWN</p>
-<h2 id="flow-chart">Flow chart</h2>
-<pre class="mermaid"><code>flowchart TD
-    A[SQL commands] --&gt; B[DML]
-    A --&gt; C[DQL]
-    A --&gt; D[DDL]
-    A --&gt; E[DQL]
-    A --&gt; F[TQL]</code></pre>
 
 
 
