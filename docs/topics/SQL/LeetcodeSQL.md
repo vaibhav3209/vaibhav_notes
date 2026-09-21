@@ -1,15 +1,18 @@
-# SQL Revision List 
+## SQL Revision List 
 
-| Problem |  Link/Problem no. | Notes                  | Importance    |
-|---------|---------------------------------|------------------------|---------------|
-| Second Highest Salary            | [Leetcode 176](https://leetcode.com/problems/second-highest-salary/) | [Notes](#leetcode-176) | ⭐             |
-| Rank Scores           | [Leetcode 178](https://leetcode.com/problems/rank-scores/)           | [Notes](#leetcode-178) | ⭐⭐⭐           |
-| Consecutive Numbers                             | [Leetcode 180](https://leetcode.com/problems/consecutive-numbers/)   | [Notes](#leetcode180)  | ⭐⭐⭐           |
-| Salary Greater than Manager's| [Leetcode 181](https://leetcode.com/problems/employees-earning-more-than-their-managers/)| -                      | ⭐             |
+| Problem                       | Link/Problem no.                                                                          | Notes           | Importance |
+|-------------------------------|-------------------------------------------------------------------------------------------|-----------------|----------|
+| Second Highest Salary         | [Leetcode 176](https://leetcode.com/problems/second-highest-salary/)                      | [Notes](#leetcode-176) | ⭐        |
+| Rank Scores                   | [Leetcode 178](https://leetcode.com/problems/rank-scores/)                                | [Notes](#leetcode-178) | ⭐⭐⭐      |
+| Consecutive Numbers           | [Leetcode 180](https://leetcode.com/problems/consecutive-numbers/)                        | [Notes](#leetcode180) | ⭐⭐⭐      |
+| Salary Greater than Manager's | [Leetcode 181](https://leetcode.com/problems/employees-earning-more-than-their-managers/) | -               | ⭐        |
+| Duplicate Emails              | [Leetcode 182](https://leetcode.com/problems/duplicate-emails/)                                                                          |                 | ⭐        |
+| Customer Who never order      | [Leetcode 183](https://leetcode.com/problems/customers-who-never-order/)                                                                          || ⭐⭐       |
+
 
 ---
 
-# Concepts
+## Concepts
 
 ??? note "Second Highest Salary"
     <a id="leetcode-176"></a>
@@ -393,3 +396,8 @@ New Concept : GAPS AND ISLANDS
         !!! tip "Core idea"
             The `id` tiebreaker is what forces uniqueness — without it,
             tied scores would get the same "count," which isn't a true ROW_NUMBER().
+
+
+## Duplicate emails 
+
+- Also analyse for deleting Duplicate emails LT 196 here only.

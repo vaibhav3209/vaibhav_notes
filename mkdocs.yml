@@ -52,7 +52,20 @@ markdown_extensions:
 nav:
   - Home: index.md
   - SQL:
-      - NULL Semantics: topics/sql/null_semantics.md
-      - Leetcode + Concepts: topics/sql/leetcode_sql.md
+      - Clauses:
+          - Select: topics/SQL/Select.md
+#          - From: topics/SQL/From.md
+#          - Where: topics/SQL/Where.md
+#          - Group By: topics/SQL/GroupBy.md
+#          - Having: topics/SQL/Having.md
+#          - Order By: topics/SQL/OrderBy.md
+#          - Limit/Offset: topics/SQL/LimitOffset.md
+      - NULL Semantics: topics/SQL/NullSemantics.md
+      - Difference: topics/SQL/DifferenceBetween.md
+      - Leetcode + Concepts: topics/SQL/LeetcodeSQL.md
+  - DSA:
+      - LinkedList: topics/DSA/LinkedList/
+  - Python:
+      - OOP: topics/Python/OOP/
   - DVER: topics/DVER/First_MDT.md
   - EEDM: topics/EEDM/First_MDT.md
