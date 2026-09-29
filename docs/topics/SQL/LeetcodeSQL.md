@@ -46,12 +46,6 @@
 | 40.  | Find COVID Recovery Patients                            | [Leetcode 3586](https://leetcode.com/problems/find-covid-recovery-patients/)              |       |            |
 
 
-### Maybe or Maybenot to keep
-
-
-| Problem             | Link/Problem no.                                                     | Notes                              | Importance |
-|---------------------|----------------------------------------------------------------------|------------------------------------|----------|
-| Rising Temperatures | [Leetcode 197](https://leetcode.com/problems/rising-temperature/) | None                               | ⭐        |
 
 ---
 
@@ -723,15 +717,4 @@ Questions:
 
 
 
-### 7. Five Levels of Questions
-
-```mermaid
-flowchart TD
-    L1["<b>Lvl 1</b><br>Find max salary of entire company"]
-    L2["<b>Lvl 2</b><br>Find employees having the max salary of entire company"]
-    L3["<b>Lvl 3</b><br>Find max salary in each department"]
-    L4["<b>Lvl 4</b><br>Find employees having max salary in their respective departments"]
-    L5["<b>Lvl 5</b><br>Find the department with the most employees who have max salary in their respective department"]
-
-    L1 --> L2 --> L3 --> L4 --> L5
-```
+##
