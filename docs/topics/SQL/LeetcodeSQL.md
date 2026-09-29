@@ -1,5 +1,7 @@
 ## SQL Revision List 
 
+[[Fork on Leetcode]](https://leetcode.com/problem-list/0xp0kame/) 
+
 | S.no. | Problem                       | Link/Problem no.                                                                          | Notes                                                        | Importance |
 |------|-------------------------------|-------------------------------------------------------------------------------------------|--------------------------------------------------------------|------------|
 | 1.   | Second Highest Salary                                   | [Leetcode 176](https://leetcode.com/problems/second-highest-salary/)                      | [Second Highest Salary](#leetcode-176)                       | ⭐          |
@@ -718,3 +720,18 @@ Questions:
 
 
 - [Leetcode 3705: Golden hour Customers](https://leetcode.com/problems/find-golden-hour-customers/)
+
+
+
+### 7. Five Levels of Questions
+
+```mermaid
+flowchart TD
+    L1["<b>Lvl 1</b><br>Find max salary of entire company"]
+    L2["<b>Lvl 2</b><br>Find employees having the max salary of entire company"]
+    L3["<b>Lvl 3</b><br>Find max salary in each department"]
+    L4["<b>Lvl 4</b><br>Find employees having max salary in their respective departments"]
+    L5["<b>Lvl 5</b><br>Find the department with the most employees who have max salary in their respective department"]
+
+    L1 --> L2 --> L3 --> L4 --> L5
+```

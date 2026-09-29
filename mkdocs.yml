@@ -40,6 +40,8 @@ markdown_extensions:
   - tables
   - admonition      # for !!! tip, !!! question
   - pymdownx.details
+  - pymdownx.tasklist:      # For Todo checkboxes
+        custom_checkbox: true
   - pymdownx.tabbed:
         alternate_style: true
   - pymdownx.superfences:
@@ -72,9 +74,13 @@ nav:
       - Difference: topics/SQL/DifferenceBetween.md
 
       - Leetcode + Concepts: topics/SQL/LeetcodeSQL.md
+
+      - Interview Questions: topics/SQL/Interview.md
   - DSA:
       - LinkedList: topics/DSA/LinkedList/
   - Python:
       - OOP: topics/Python/OOP/
   - DVER: topics/DVER/First_MDT.md
   - EEDM: topics/EEDM/First_MDT.md
+
+  - Resume Tips: topics/Resume.md
