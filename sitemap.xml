@@ -2,30 +2,70 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://vaibhav3209.github.io/vaibhav_notes/index.html</loc>
-         <lastmod>2026-09-21</lastmod>
+         <lastmod>2026-10-04</lastmod>
     </url>
     <url>
          <loc>https://vaibhav3209.github.io/vaibhav_notes/topics/DVER/First_MDT.html</loc>
-         <lastmod>2026-09-21</lastmod>
+         <lastmod>2026-10-04</lastmod>
     </url>
     <url>
          <loc>https://vaibhav3209.github.io/vaibhav_notes/topics/EEDM/First_MDT.html</loc>
-         <lastmod>2026-09-21</lastmod>
+         <lastmod>2026-10-04</lastmod>
+    </url>
+    <url>
+         <loc>https://vaibhav3209.github.io/vaibhav_notes/topics/Interviews/HR.html</loc>
+         <lastmod>2026-10-04</lastmod>
+    </url>
+    <url>
+         <loc>https://vaibhav3209.github.io/vaibhav_notes/topics/Interviews/Resume.html</loc>
+         <lastmod>2026-10-04</lastmod>
     </url>
     <url>
          <loc>https://vaibhav3209.github.io/vaibhav_notes/topics/SQL/DifferenceBetween.html</loc>
-         <lastmod>2026-09-21</lastmod>
+         <lastmod>2026-10-04</lastmod>
     </url>
     <url>
-         <loc>https://vaibhav3209.github.io/vaibhav_notes/topics/SQL/LeetcodeSQL.html</loc>
-         <lastmod>2026-09-21</lastmod>
+         <loc>https://vaibhav3209.github.io/vaibhav_notes/topics/SQL/GroupBy.html</loc>
+         <lastmod>2026-10-04</lastmod>
+    </url>
+    <url>
+         <loc>https://vaibhav3209.github.io/vaibhav_notes/topics/SQL/Having.html</loc>
+         <lastmod>2026-10-04</lastmod>
+    </url>
+    <url>
+         <loc>https://vaibhav3209.github.io/vaibhav_notes/topics/SQL/InterviewCoding.html</loc>
+         <lastmod>2026-10-04</lastmod>
+    </url>
+    <url>
+         <loc>https://vaibhav3209.github.io/vaibhav_notes/topics/SQL/InterviewTheory.html</loc>
+         <lastmod>2026-10-04</lastmod>
+    </url>
+    <url>
+         <loc>https://vaibhav3209.github.io/vaibhav_notes/topics/SQL/LeetcodeList.html</loc>
+         <lastmod>2026-10-04</lastmod>
     </url>
     <url>
          <loc>https://vaibhav3209.github.io/vaibhav_notes/topics/SQL/NullSemantics.html</loc>
-         <lastmod>2026-09-21</lastmod>
+         <lastmod>2026-10-04</lastmod>
     </url>
     <url>
          <loc>https://vaibhav3209.github.io/vaibhav_notes/topics/SQL/Select.html</loc>
-         <lastmod>2026-09-21</lastmod>
+         <lastmod>2026-10-04</lastmod>
+    </url>
+    <url>
+         <loc>https://vaibhav3209.github.io/vaibhav_notes/topics/SQL/Where.html</loc>
+         <lastmod>2026-10-04</lastmod>
+    </url>
+    <url>
+         <loc>https://vaibhav3209.github.io/vaibhav_notes/topics/SQL/With.html</loc>
+         <lastmod>2026-10-04</lastmod>
+    </url>
+    <url>
+         <loc>https://vaibhav3209.github.io/vaibhav_notes/topics/Spark/Architechture.html</loc>
+         <lastmod>2026-10-04</lastmod>
+    </url>
+    <url>
+         <loc>https://vaibhav3209.github.io/vaibhav_notes/topics/Spark/Introduction.html</loc>
+         <lastmod>2026-10-04</lastmod>
     </url>
 </urlset>

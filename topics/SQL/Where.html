@@ -8,29 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://vaibhav3209.github.io/vaibhav_notes/index.html">
+        <link rel="canonical" href="https://vaibhav3209.github.io/vaibhav_notes/topics/SQL/Where.html">
       
       
+        <link rel="prev" href="Select.html">
       
-        <link rel="next" href="topics/SQL/Select.html">
+      
+        <link rel="next" href="With.html">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Vaibhav Notes</title>
+        <title>Where - Vaibhav Notes</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -49,9 +51,9 @@
       
     
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#study-notes" class="md-skip">
+        <a href="#where-clause-overview" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +94,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="index.html" title="Vaibhav Notes" class="md-header__button md-logo" aria-label="Vaibhav Notes" data-md-component="logo">
+    <a href="../../index.html" title="Vaibhav Notes" class="md-header__button md-logo" aria-label="Vaibhav Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Where
             
           </span>
         </div>
@@ -228,7 +230,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="index.html" title="Vaibhav Notes" class="md-nav__button md-logo" aria-label="Vaibhav Notes" data-md-component="logo">
+    <a href="../../index.html" title="Vaibhav Notes" class="md-nav__button md-logo" aria-label="Vaibhav Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -255,37 +257,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="index.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
         
   
   
@@ -301,70 +276,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#sql-todo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SQL Todo
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#data-engineering-todo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Data engineering TODO
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#data-certificates-todo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Data Certificates Todo
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#job-search-sites" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Job search sites
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -373,8 +284,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -385,13 +298,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -412,7 +323,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -427,6 +338,8 @@
                 
   
   
+    
+  
   
   
     
@@ -436,13 +349,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
         
           
           <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
@@ -463,7 +374,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -481,7 +392,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/SQL/Select.html" class="md-nav__link">
+      <a href="Select.html" class="md-nav__link">
         
   
   
@@ -506,10 +417,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="topics/SQL/Where.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Where
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="Where.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -525,6 +461,96 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#where-clause-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WHERE Clause Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-cannot-be-done-in-where" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Cannot Be Done in WHERE?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#special-case-possible-interview-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Special Case: Possible Interview Question
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#joins-index-efficiency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Joins &amp; Index Efficiency
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Joins &amp; Index Efficiency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inner-join-vs-left-join-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inner Join vs. Left Join Behavior
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-queries-for-index-efficiency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing Queries for Index Efficiency
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -537,7 +563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/SQL/With.html" class="md-nav__link">
+      <a href="With.html" class="md-nav__link">
         
   
   
@@ -565,7 +591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/SQL/GroupBy.html" class="md-nav__link">
+      <a href="GroupBy.html" class="md-nav__link">
         
   
   
@@ -593,7 +619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/SQL/Having.html" class="md-nav__link">
+      <a href="Having.html" class="md-nav__link">
         
   
   
@@ -629,7 +655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/SQL/NullSemantics.html" class="md-nav__link">
+      <a href="NullSemantics.html" class="md-nav__link">
         
   
   
@@ -657,7 +683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/SQL/DifferenceBetween.html" class="md-nav__link">
+      <a href="DifferenceBetween.html" class="md-nav__link">
         
   
   
@@ -685,7 +711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/SQL/LeetcodeList.html" class="md-nav__link">
+      <a href="LeetcodeList.html" class="md-nav__link">
         
   
   
@@ -713,7 +739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/SQL/InterviewTheory.html" class="md-nav__link">
+      <a href="InterviewTheory.html" class="md-nav__link">
         
   
   
@@ -741,7 +767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/SQL/InterviewCoding.html" class="md-nav__link">
+      <a href="InterviewCoding.html" class="md-nav__link">
         
   
   
@@ -830,7 +856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/DSA/LinkedList/" class="md-nav__link">
+      <a href="../DSA/LinkedList/" class="md-nav__link">
         
   
   
@@ -919,7 +945,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/Python/OOP/" class="md-nav__link">
+      <a href="../Python/OOP/" class="md-nav__link">
         
   
   
@@ -954,7 +980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/DVER/First_MDT.html" class="md-nav__link">
+      <a href="../DVER/First_MDT.html" class="md-nav__link">
         
   
   
@@ -981,7 +1007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/EEDM/First_MDT.html" class="md-nav__link">
+      <a href="../EEDM/First_MDT.html" class="md-nav__link">
         
   
   
@@ -1008,7 +1034,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/Interviews/Resume.html" class="md-nav__link">
+      <a href="../Interviews/Resume.html" class="md-nav__link">
         
   
   
@@ -1089,7 +1115,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/Spark/Introduction.html" class="md-nav__link">
+      <a href="../Spark/Introduction.html" class="md-nav__link">
         
   
   
@@ -1117,7 +1143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/Spark/Architechture.html" class="md-nav__link">
+      <a href="../Spark/Architechture.html" class="md-nav__link">
         
   
   
@@ -1162,8 +1188,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1172,10 +1196,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sql-todo" class="md-nav__link">
+  <a href="#where-clause-overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SQL Todo
+        WHERE Clause Overview
       
     </span>
   </a>
@@ -1183,10 +1207,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#data-engineering-todo" class="md-nav__link">
+  <a href="#what-cannot-be-done-in-where" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Data engineering TODO
+        What Cannot Be Done in WHERE?
       
     </span>
   </a>
@@ -1194,10 +1218,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#data-certificates-todo" class="md-nav__link">
+  <a href="#special-case-possible-interview-question" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Data Certificates Todo
+        Special Case: Possible Interview Question
       
     </span>
   </a>
@@ -1205,13 +1229,41 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#job-search-sites" class="md-nav__link">
+  <a href="#joins-index-efficiency" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Job search sites
+        Joins &amp; Index Efficiency
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Joins &amp; Index Efficiency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inner-join-vs-left-join-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inner Join vs. Left Join Behavior
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#writing-queries-for-index-efficiency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Writing Queries for Index Efficiency
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1235,105 +1287,124 @@
   
 
 
-<h1 id="study-notes">Study Notes</h1>
-<h3 id="sql-todo">SQL Todo</h3>
-<p>As of [29th Septmeber, 2026]</p>
-<ul class="task-list">
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Retention analysis karna usme multiple queries 
-like returning users, monthly active users etc</p>
-</li>
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Triggers, Transactions and Stored Procedures padhne.</p>
-</li>
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Query OPtimisations Speak and explain your approach.</p>
-</li>
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Case Studies kar lo as mentioned in Resume.</p>
-</li>
-</ul>
-<h3 id="data-engineering-todo">Data engineering TODO</h3>
-<p>As of [29th Septmeber, 2026]</p>
-<ul class="task-list">
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Expand to--&gt;&gt;</p>
+  <h1>Where</h1>
+
+<h2 id="where-clause-overview">WHERE Clause Overview</h2>
 <ul>
 <li>
-<p>NO SQL databases </p>
+<p>Used to filter rows based on a condition.</p>
 </li>
 <li>
-<p>Vector Databases</p>
+<p>ONLY rows that evaluate to <code>TRUE</code> are returned.</p>
 </li>
 <li>
-<p>Working with Json </p>
-</li>
+<p>Allows:</p>
+<ul>
+<li>Comparison operators</li>
+<li>Logical operators (<code>AND</code>, <code>OR</code>, <code>NOT</code>)</li>
+<li><code>IN</code>, <code>BETWEEN</code>, <code>LIKE</code></li>
+<li><code>IS</code> / <code>IS NOT NULL</code></li>
+<li>Subqueries, functions, expressions</li>
 </ul>
 </li>
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Video/ Audio data processing</p>
+<li>
+<p><strong>WHERE</strong>: Filters individual rows.</p>
 </li>
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> </p>
-</li>
-</ul>
-<h3 id="data-certificates-todo">Data Certificates Todo</h3>
-<ul class="task-list">
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Azure DP-900 : Azure data fundamentals</p>
-</li>
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Azure DP-700 : Azure Fabric Data engineer Associate</p>
-</li>
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> AWS DEA-CO1 : AWS Certifed Data Engineer</p>
-</li>
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Databricks Certified Data Engineer Associate</p>
-</li>
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Databricks Certified Data Engineer Professional</p>
+<li>
+<p><strong>HAVING</strong>: Filters groups.</p>
 </li>
 </ul>
-<h3 id="job-search-sites">Job search sites</h3>
+<h2 id="what-cannot-be-done-in-where">What Cannot Be Done in WHERE?</h2>
 <ul>
 <li>
-<p>AngleList</p>
+<p>No aggregate functions (<code>AGG()</code>).</p>
 </li>
 <li>
-<p>CarrerCloud</p>
+<p>No window functions (<code>Window()</code>) directly → Use in <code>HAVING</code> or CTEs instead.</p>
 </li>
 <li>
-<p>CareerBuilder</p>
+<p>Cannot use column aliases defined in the <code>SELECT</code> statement directly inside <code>WHERE</code>.</p>
 </li>
 <li>
-<p>FlexJobs</p>
-</li>
-<li>
-<p>FreeLancer</p>
-</li>
-<li>
-<p>GlassDoor</p>
-</li>
-<li>
-<p>Jobespresso</p>
-</li>
-<li>
-<p>Remotive</p>
-</li>
-<li>
-<p>Stack Overflow Jobs</p>
-</li>
-<li>
-<p>SimplyHired</p>
-</li>
-<li>
-<p>SkiptheDrive</p>
-</li>
-<li>
-<p>WorkingNomads</p>
+<p>Cannot use direct NULL comparisons (e.g., <code>= NULL</code>), 
+because <code>WHERE</code> only keeps rows that evaluate to <code>TRUE</code>.</p>
 </li>
 </ul>
+<h2 id="special-case-possible-interview-question">Special Case: Possible Interview Question</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Join with Condition</label><label for="__tabbed_1_2">Join with WHERE</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employee</span><span class="w"> </span><span class="n">e</span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">dept</span><span class="w"> </span><span class="n">d</span>
+<span class="w">  </span><span class="k">ON</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">dept_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">dept_id</span><span class="w"> </span>
+<span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">deptname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'IT'</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li>
+<p>The <code>deptname = 'IT'</code> condition is applied <strong>during the join itself</strong>, before rows are combined.</p>
+</li>
+<li>
+<p>Since this is an <code>INNER JOIN</code>, the practical result is the same as the WHERE approach here 
+    only employees in the IT department come back.</p>
+</li>
+<li>
+<p>The difference matters most with an <strong>outer join</strong> (e.g., <code>LEFT JOIN</code>). 
+    With the condition inside <code>ON</code>, every employee row is still kept (matched or not), and department 
+    columns are <code>NULL</code> for anyone not in IT. The filter only decides <em>which dept row to attach</em>,
+    not <em>which employee rows survive</em>.</p>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employee</span><span class="w"> </span><span class="n">e</span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">dept</span><span class="w"> </span><span class="n">d</span>
+<span class="w">  </span><span class="k">ON</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">dept_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">dept_id</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">deptname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'IT'</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li>
+<p>Here the join happens first (matching every employee to their dept), 
+    and <code>WHERE</code> filters the <em>combined result set</em> afterward.</p>
+</li>
+<li>
+<p>With an <code>INNER JOIN</code>, this gives the same output as the ON-condition approach.</p>
+</li>
+<li>
+<p>With a <code>LEFT JOIN</code>, this is where the difference shows up: any employee whose 
+    dept didn't match (so <code>d.deptname</code> is <code>NULL</code>) gets <strong>dropped</strong> by the <code>WHERE</code> clause,
+    since <code>NULL = 'IT'</code> isn't <code>TRUE</code>. This effectively turns your left join into an 
+    inner join — a classic interview gotcha.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<p><strong>Interview takeaway:</strong> for <code>INNER JOIN</code>, condition placement (<code>ON</code> vs <code>WHERE</code>) doesn't change the result. For <code>LEFT</code>/<code>RIGHT JOIN</code>,
+putting the filter in <code>ON</code> preserves unmatched rows, while putting it in <code>WHERE</code> silently filters them out.</p>
+<h2 id="joins-index-efficiency">Joins &amp; Index Efficiency</h2>
+<h3 id="inner-join-vs-left-join-behavior">Inner Join vs. Left Join Behavior</h3>
+<ul>
+<li>An <code>INNER JOIN</code> and a <code>WHERE</code> filter may yield similar result sets, but a <code>LEFT JOIN</code> can produce <strong>different results</strong> because it retains all rows from the left table regardless of match.</li>
+</ul>
+<h3 id="writing-queries-for-index-efficiency">Writing Queries for Index Efficiency</h3>
+<ul>
+<li>
+<p>Filter conditions should be written so the database engine can <strong>utilize pre-existing indexes</strong>.</p>
+</li>
+<li>
+<p><strong>Efficient (Uses Index)</strong> ✔️:</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="s1">'2023-01-01'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="s1">'2023-02-01'</span>
+</code></pre></div>
+<ul>
+<li><strong>Inefficient (Disables Index)</strong> ❌:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="k">MONTH</span><span class="p">(</span><span class="nb">date</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Jan'</span>
+<span class="w">    </span><span class="c1">-- Function call on column prevents index usage!</span>
+</code></pre></div>
 
 
 
@@ -1383,12 +1454,12 @@ like returning users, monthly active users etc</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.expand", "content.code.copy"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="javascripts/note-collapse.js"></script>
+        <script src="../../javascripts/note-collapse.js"></script>
       
     
   </body>

@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://vaibhav3209.github.io/vaibhav_notes/topics/SQL/Select.html">
+        <link rel="canonical" href="https://vaibhav3209.github.io/vaibhav_notes/topics/SQL/With.html">
       
       
-        <link rel="prev" href="../../index.html">
+        <link rel="prev" href="Where.html">
       
       
-        <link rel="next" href="Where.html">
+        <link rel="next" href="GroupBy.html">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Select - Vaibhav Notes</title>
+        <title>With - Vaibhav Notes</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#select-clause" class="md-skip">
+        <a href="#with-clause" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Select
+              With
             
           </span>
         </div>
@@ -389,35 +389,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Select
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="Select.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="Select.html" class="md-nav__link">
         
   
   
@@ -433,107 +408,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#select-clause" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SELECT Clause
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="SELECT Clause">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-basic-syntax" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Basic Syntax
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-why-not-select" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Why not SELECT * ?
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-return-value-of-select" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Return Value of SELECT
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-relational-algebra-mapping" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Relational Algebra Mapping
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-key-notes-on-select" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Key Notes on SELECT
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-tricky-questionsselect-without-from" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Tricky Questions(SELECT without FROM)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -571,10 +445,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="With.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    With
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="With.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -590,6 +489,235 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#with-clause" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WITH Clause
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="WITH Clause">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-a-cte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Use a CTE?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defining-multiple-ctes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Defining Multiple CTEs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#referencing-ctes-inside-cte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referencing CTEs Inside CTE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cte-vs-temporary-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CTE vs Temporary Table
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CTE vs Temporary Table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CTE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporary-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Temporary Table
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simplified-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simplified Comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cte-vs-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CTE vs VIEW
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CTE vs VIEW">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cte_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CTE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#does-cte-improve-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Does CTE Improve Performance?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-ctes-contain-order-by" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Can CTEs Contain ORDER BY?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-ctes-be-used-with-insert-update-delete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Can CTEs Be Used with INSERT, UPDATE, DELETE?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursive-cte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recursive CTE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recursive CTE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recursive-cte-example-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recursive CTE Example: Numbers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1207,22 +1335,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#select-clause" class="md-nav__link">
+  <a href="#with-clause" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SELECT Clause
+        WITH Clause
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="SELECT Clause">
+    <nav class="md-nav" aria-label="WITH Clause">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-basic-syntax" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Basic Syntax
+        Overview
       
     </span>
   </a>
@@ -1230,10 +1358,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-why-not-select" class="md-nav__link">
+  <a href="#when-to-use-a-cte" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Why not SELECT * ?
+        When to Use a CTE?
       
     </span>
   </a>
@@ -1241,10 +1369,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-return-value-of-select" class="md-nav__link">
+  <a href="#defining-multiple-ctes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Return Value of SELECT
+        Defining Multiple CTEs
       
     </span>
   </a>
@@ -1252,10 +1380,38 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-relational-algebra-mapping" class="md-nav__link">
+  <a href="#referencing-ctes-inside-cte" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Relational Algebra Mapping
+        Referencing CTEs Inside CTE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cte-vs-temporary-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CTE vs Temporary Table
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CTE vs Temporary Table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CTE
       
     </span>
   </a>
@@ -1263,10 +1419,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-key-notes-on-select" class="md-nav__link">
+  <a href="#temporary-table" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Key Notes on SELECT
+        Temporary Table
       
     </span>
   </a>
@@ -1274,10 +1430,110 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-tricky-questionsselect-without-from" class="md-nav__link">
+  <a href="#simplified-comparison" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Tricky Questions(SELECT without FROM)
+        Simplified Comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cte-vs-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CTE vs VIEW
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CTE vs VIEW">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cte_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CTE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#does-cte-improve-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Does CTE Improve Performance?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-ctes-contain-order-by" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Can CTEs Contain ORDER BY?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-ctes-be-used-with-insert-update-delete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Can CTEs Be Used with INSERT, UPDATE, DELETE?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursive-cte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recursive CTE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recursive CTE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recursive-cte-example-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recursive CTE Example: Numbers
       
     </span>
   </a>
@@ -1309,278 +1565,270 @@
   
 
 
-  <h1>Select</h1>
+  <h1>With</h1>
 
-<h2 id="select-clause">SELECT Clause</h2>
-<h3 id="1-basic-syntax">1. Basic Syntax</h3>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">col_name</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">expressions</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">constants</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">literals</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">functions</span><span class="p">]</span>
+<h2 id="with-clause">WITH Clause</h2>
+<p><a href="">Refer CTE later</a></p>
+<h3 id="overview">Overview</h3>
+<ul>
+<li>
+<p>Used to define a CTE (Common Table Expression).</p>
+</li>
+<li>
+<p>A CTE is a temporary, named result set that can be referenced within an SQL statement.</p>
+</li>
+<li>
+<p>Used to simplify complex SQL statements, making code easier to read, manage, and use.</p>
+</li>
+</ul>
+<h3 id="when-to-use-a-cte">When to Use a CTE?</h3>
+<ul>
+<li>
+<p><strong>Sequential aggregations</strong>: When you need to aggregate, then aggregate again and search/filter on those new results.</p>
+</li>
+<li>
+<p><strong>Reusing intermediate results</strong>: Storing intermediate outputs returned by another subquery.</p>
+</li>
+<li>
+<p><strong>Window functions in WHERE clauses</strong>: Since window functions (<code>WINDOW()</code>) cannot be used directly in <code>WHERE</code>, you must first define them inside a CTE.</p>
+</li>
+<li>
+<p><strong>Recursive problems</strong>: Organizational hierarchies, tree structures, graph traversal, parent-child relationships, generating sequences etc</p>
+</li>
+</ul>
+<h3 id="defining-multiple-ctes">Defining Multiple CTEs</h3>
+<ul>
+<li><strong>Correct Syntax</strong> ✔️ (Use <code>WITH</code> only once):</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">WITH</span><span class="w"> </span><span class="n">cte1</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">      </span><span class="c1">---</span>
+<span class="w">    </span><span class="p">),</span>
+<span class="w">    </span><span class="n">cte2</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">      </span><span class="c1">---</span>
+<span class="w">    </span><span class="p">),</span>
+<span class="w">    </span><span class="n">cte3</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">      </span><span class="c1">---</span>
+<span class="w">    </span><span class="p">);</span>
 </code></pre></div>
-<p>You can select any of the above in a <code>SELECT</code> statement.</p>
-<h3 id="2-why-not-select">2. Why not <code>SELECT *</code> ?</h3>
-<p>It's not used in production.</p>
 <ul>
-<li>
-<p>Unnecessary columns can be transferred.</p>
-</li>
-<li>
-<p>Unnecessary columns can be present in the resultant table.</p>
-</li>
-<li>
-<p>Since production has many tables, <code>SELECT *</code> can produce a large, ambiguous result.</p>
-</li>
-<li>
-<p>There's an added cost of transferring non-required rows/columns.</p>
-</li>
+<li><strong>Incorrect Syntax</strong> ❌ (Do NOT repeat the <code>WITH</code> keyword):</li>
 </ul>
-<h3 id="3-return-value-of-select">3. Return Value of <code>SELECT</code></h3>
-<table>
-<thead>
-<tr>
-<th>Select Returns</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Table</td>
-<td>❌</td>
-</tr>
-<tr>
-<td>Result Set</td>
-<td>✅</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>
-<p>It gives a result set containing the requested rows and columns.</p>
-</li>
-<li>
-<p>It can also include additional columns/expressions that were not present in the original table.</p>
-</li>
-</ul>
-<h3 id="4-relational-algebra-mapping">4. Relational Algebra Mapping</h3>
-<table>
-<thead>
-<tr>
-<th>SQL Clause</th>
-<th>Relational Algebra</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>SELECT</code></td>
-<td><strong>Projection</strong> — selecting attributes from a relation</td>
-</tr>
-<tr>
-<td><code>WHERE</code></td>
-<td><strong>Selection</strong></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Term</th>
-<th>Mapping</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Degree</td>
-<td>number of columns.</td>
-</tr>
-<tr>
-<td>Cardinality</td>
-<td>number of rows.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="5-key-notes-on-select">5. Key Notes on SELECT</h3>
-<ul>
-<li>
-<p><code>SELECT</code> doesn't modify data.</p>
-</li>
-<li>
-<p><code>SELECT</code> doesn't sort the result set.</p>
-</li>
-<li>
-<p><code>SELECT</code> doesn't remove duplicates.</p>
-</li>
-<li>
-<p>Ordering of columns is important.</p>
-</li>
-<li>
-<p>Use of alias in <code>SELECT</code> vs. other clauses depends on order of execution.</p>
-</li>
-</ul>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">WITH</span><span class="w"> </span><span class="n">cte1</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">      </span><span class="c1">---</span>
+<span class="w">    </span><span class="p">),</span>
+<span class="w">    </span><span class="k">WITH</span><span class="w"> </span><span class="n">cte2</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="w">  </span><span class="c1">-- Incorrect syntax!</span>
+<span class="w">      </span><span class="c1">---</span>
+<span class="w">    </span><span class="p">),</span>
+<span class="w">    </span><span class="n">cte3</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">      </span><span class="c1">---</span>
+<span class="w">    </span><span class="p">);</span>
+</code></pre></div>
 <div class="admonition tip">
-<p class="admonition-title"><code>SELECT</code> doesn't require a <code>FROM</code> clause.</p>
+<p class="admonition-title">Tip</p>
+<p>A single <code>WITH</code> statement can define multiple CTEs, and all CTEs belong to the primary statement that immediately follows.</p>
 </div>
-<h3 id="6-tricky-questionsselect-without-from">6. Tricky Questions(SELECT without FROM)</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Q1</label><label for="__tabbed_1_2">Q2</label><label for="__tabbed_1_3">Q3</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<h3 id="referencing-ctes-inside-cte">Referencing CTEs Inside CTE</h3>
+<ul>
+<li>Subsequent CTEs can directly query previously defined CTEs within the same <code>WITH</code> block:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">WITH</span><span class="w"> </span><span class="n">cte1</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">      </span><span class="c1">---</span>
+<span class="w">    </span><span class="p">),</span>
+<span class="w">    </span><span class="n">cte2</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">      </span><span class="k">SELECT</span><span class="w"> </span><span class="c1">---</span>
+<span class="w">      </span><span class="k">FROM</span><span class="w"> </span><span class="n">cte1</span><span class="w">  </span><span class="c1">-- Referencing cte1</span>
+<span class="w">    </span><span class="p">),</span>
+<span class="w">    </span><span class="n">cte3</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">      </span><span class="k">SELECT</span><span class="w"> </span><span class="c1">---</span>
+<span class="w">      </span><span class="k">FROM</span><span class="w"> </span><span class="n">cte2</span><span class="w">  </span><span class="c1">-- Referencing cte2</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">cte3</span><span class="p">;</span><span class="w">   </span><span class="c1">-- Final query referencing cte3</span>
 </code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">10</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">10</td>
-</tr>
-</tbody>
-</table>
-<p><div class="highlight"><pre><span></span><code><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="mi">10</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s1">'Hello'</span><span class="p">;</span>
-</code></pre></div>
-(String Columns have comma and result set Doesn;t )</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">10.5</th>
-<th style="text-align: center;"><code>'Hello'</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">10.5</td>
-<td style="text-align: center;">Hello</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">TRUE</span><span class="p">;</span>
-</code></pre></div>
-<p><em>(DB-specific: <code>TRUE</code>/<code>FALSE</code> = <code>1</code>/<code>0</code>. )</em></p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">TRUE</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span>
-</code></pre></div>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">NULL</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">NULL</td>
-</tr>
-</tbody>
-</table>
+<div class="admonition tip">
+<p class="admonition-title">Key Takeaway</p>
+<p>This hierarchical structure allows you to build <strong>modular, step-by-step logic</strong> where each virtual table builds upon the output of the preceding one.</p>
 </div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="mi">10</span><span class="o">+</span><span class="mi">20</span><span class="p">;</span>
+<h2 id="cte-vs-temporary-table">CTE vs Temporary Table</h2>
+<ul>
+<li>They are not the same thing.</li>
+</ul>
+<h3 id="cte">CTE</h3>
+<div class="highlight"><pre><span></span><code><span class="k">WITH</span><span class="w"> </span><span class="n">sales</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="p">...</span>
+<span class="p">)</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">sales</span><span class="p">;</span>
 </code></pre></div>
+<ul>
+<li>A CTE exists for the duration/scope of the SQL statement.</li>
+</ul>
+<h3 id="temporary-table">Temporary Table</h3>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="n">TEMP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">sales</span><span class="w"> </span><span class="k">AS</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="p">...;</span>
+</code></pre></div>
+<ul>
+<li>A temporary table is an actual temporary database object, with a lifetime defined by the database/session rules.</li>
+</ul>
+<h3 id="simplified-comparison">Simplified Comparison</h3>
 <table>
 <thead>
 <tr>
-<th style="text-align: center;">10+20</th>
+<th>CTE</th>
+<th>Temporary Table</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;"><code>30</code></td>
+<td>Exists for one statement</td>
+<td>Can persist for a session/transaction depending on DB</td>
+</tr>
+<tr>
+<td>Mainly improves query structure</td>
+<td>Can be used across multiple statements</td>
+</tr>
+<tr>
+<td>Usually no explicit creation/drop</td>
+<td>Created as a database object</td>
+</tr>
+<tr>
+<td>Great for multi-step query logic</td>
+<td>Useful for intermediate datasets reused across queries</td>
+</tr>
+<tr>
+<td>Can be recursive</td>
+<td>Usually not the same mechanism</td>
 </tr>
 </tbody>
 </table>
-<p><div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="s1">'10'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">'20'</span><span class="p">;</span>
+<h2 id="cte-vs-view">CTE vs VIEW</h2>
+<h3 id="cte_1">CTE</h3>
+<ul>
+<li>Temporary for the statement:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">WITH</span><span class="w"> </span><span class="n">sales</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(...)</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="p">...</span>
 </code></pre></div>
-<em>(MySQL: <code>+</code> coerces numeric strings → arithmetic. SQL Server: <code>+</code> between strings = concatenation → <code>'1020'</code>.)</em></p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">'10' + '20'</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">30 (MySQL only)</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<h3 id="view">View</h3>
+<ul>
+<li>Saved database object:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">CREATE</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">sales_view</span><span class="w"> </span><span class="k">AS</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="p">...;</span>
 </code></pre></div>
-<p><em>(Operator precedence: <code>*</code> before <code>+</code>.)</em></p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">10+5*2</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">20</td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li>A view can then be queried later:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">sales_view</span><span class="p">;</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Think of it this way</p>
+<p><strong>CTE</strong> → temporary query-level abstraction</p>
+<p><strong>VIEW</strong> → persistent database-level abstraction</p>
 </div>
-<div class="tabbed-block">
-<p><div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="mi">10</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<h2 id="does-cte-improve-performance">Does CTE Improve Performance?</h2>
+<ul>
+<li>
+<p>This is a trick interview question.</p>
+</li>
+<li>
+<p><strong>Wrong answer</strong>: "Yes, CTEs make queries faster."</p>
+</li>
+<li>
+<p><strong>Not necessarily.</strong> A CTE is primarily a query organization/readability mechanism.</p>
+</li>
+</ul>
+<h2 id="can-ctes-contain-order-by">Can CTEs Contain ORDER BY?</h2>
+<ul>
+<li>
+<p>This is database-specific and has an important conceptual point.</p>
+</li>
+<li>
+<p>A relational result does not inherently have an order unless the final result is ordered.</p>
+</li>
+<li>
+<p>So this:</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">WITH</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span>
+<span class="w">        </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">DESC</span>
+<span class="w">    </span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="k">data</span><span class="p">;</span>
 </code></pre></div>
-(Complete Division)</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th style="text-align: center;">Generic</th>
-<th style="text-align: center;">MySQL</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>10/2</td>
-<td style="text-align: center;">5</td>
-<td style="text-align: center;">5.0000</td>
-</tr>
-<tr>
-<td>10.0/2`</td>
-<td style="text-align: center;">5</td>
-<td style="text-align: center;">5.00000</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="mi">10</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">3</span><span class="p">;</span>
+<pre><code>should not be relied upon to produce an ordered final result.
+</code></pre>
+<ul>
+<li>If you want the final output sorted:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">WITH</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span>
+<span class="w">    </span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="k">data</span>
+<span class="w">    </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
 </code></pre></div>
-<p>(Incomplete Division)    </p>
-<p><em>(MySQL's <code>/</code> never truncates to an int — it always returns a decimal, with scale = operand's decimals + 4.)</em></p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th style="text-align: center;">Generic (SQL Server)</th>
-<th style="text-align: center;">MySQL</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>10/3</code></td>
-<td style="text-align: center;"><code>3</code> (int truncation)</td>
-<td style="text-align: center;"><code>3.3333</code></td>
-</tr>
-<tr>
-<td><code>10.0/3</code></td>
-<td style="text-align: center;"><code>3.333...</code> (high precision)</td>
-<td style="text-align: center;"><code>3.33333</code></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
+<ul>
+<li>
+<p>The <code>ORDER BY</code> belongs to the result you actually want ordered.</p>
+</li>
+<li>
+<p>Some SQL dialects allow <code>ORDER BY</code> inside a CTE for specific constructs such as <code>LIMIT</code>, <code>TOP</code>, or similar operations, but don't confuse that with guaranteeing final output order.</p>
+</li>
+</ul>
+<h2 id="can-ctes-be-used-with-insert-update-delete">Can CTEs Be Used with INSERT, UPDATE, DELETE?</h2>
+<ul>
+<li>Yes, depending on the database.</li>
+</ul>
+<h2 id="recursive-cte">Recursive CTE</h2>
+<ul>
+<li>
+<p>Now we get into a senior-level interview topic.</p>
+</li>
+<li>
+<p>A recursive CTE references itself.</p>
+</li>
+<li>
+<p><strong>General structure:</strong></p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">WITH</span><span class="w"> </span><span class="k">RECURSIVE</span><span class="w"> </span><span class="n">cte_name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+
+<span class="w">        </span><span class="c1">-- Anchor query</span>
+<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="p">...</span>
+
+<span class="w">        </span><span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span>
+
+<span class="w">        </span><span class="c1">-- Recursive query</span>
+<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="p">...</span>
+<span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="p">...</span>
+<span class="w">        </span><span class="k">JOIN</span><span class="w"> </span><span class="n">cte_name</span><span class="w"> </span><span class="p">...</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+<h3 id="recursive-cte-example-numbers">Recursive CTE Example: Numbers</h3>
+<ul>
+<li>Suppose we want numbers from 1 to 5.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">WITH</span><span class="w"> </span><span class="k">RECURSIVE</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+
+<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">n</span>
+
+<span class="w">        </span><span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span>
+
+<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">numbers</span>
+<span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span>
+<span class="w">    </span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">numbers</span><span class="p">;</span>
+</code></pre></div>
 
 
 

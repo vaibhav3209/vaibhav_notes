@@ -8,29 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://vaibhav3209.github.io/vaibhav_notes/index.html">
+        <link rel="canonical" href="https://vaibhav3209.github.io/vaibhav_notes/topics/SQL/Having.html">
       
       
+        <link rel="prev" href="GroupBy.html">
       
-        <link rel="next" href="topics/SQL/Select.html">
+      
+        <link rel="next" href="NullSemantics.html">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Vaibhav Notes</title>
+        <title>Having - Vaibhav Notes</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -49,9 +51,9 @@
       
     
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#study-notes" class="md-skip">
+        <a href="#having-clause" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +94,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="index.html" title="Vaibhav Notes" class="md-header__button md-logo" aria-label="Vaibhav Notes" data-md-component="logo">
+    <a href="../../index.html" title="Vaibhav Notes" class="md-header__button md-logo" aria-label="Vaibhav Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Having
             
           </span>
         </div>
@@ -228,7 +230,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="index.html" title="Vaibhav Notes" class="md-nav__button md-logo" aria-label="Vaibhav Notes" data-md-component="logo">
+    <a href="../../index.html" title="Vaibhav Notes" class="md-nav__button md-logo" aria-label="Vaibhav Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -255,37 +257,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="index.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
         
   
   
@@ -301,70 +276,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#sql-todo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SQL Todo
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#data-engineering-todo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Data engineering TODO
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#data-certificates-todo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Data Certificates Todo
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#job-search-sites" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Job search sites
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -373,8 +284,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -385,13 +298,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -412,7 +323,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -427,6 +338,8 @@
                 
   
   
+    
+  
   
   
     
@@ -436,13 +349,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
         
           
           <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
@@ -463,7 +374,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -481,7 +392,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/SQL/Select.html" class="md-nav__link">
+      <a href="Select.html" class="md-nav__link">
         
   
   
@@ -509,7 +420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/SQL/Where.html" class="md-nav__link">
+      <a href="Where.html" class="md-nav__link">
         
   
   
@@ -537,7 +448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/SQL/With.html" class="md-nav__link">
+      <a href="With.html" class="md-nav__link">
         
   
   
@@ -565,7 +476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/SQL/GroupBy.html" class="md-nav__link">
+      <a href="GroupBy.html" class="md-nav__link">
         
   
   
@@ -590,10 +501,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="topics/SQL/Having.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Having
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="Having.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -609,6 +545,190 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#having-clause" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HAVING Clause
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HAVING Clause">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-can-we-use-group-by-wo-having" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q1: Can we use GROUP BY w/o HAVING?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2-can-we-use-having-wo-group-by" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q2: Can we use HAVING w/o GROUP BY?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3-can-having-filter-a-non-agg-column-can-having-be-used-wo-agg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q3: Can HAVING filter a non-agg. column? / Can HAVING be used w/o agg()?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4-can-having-where-be-used-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q4: Can HAVING, WHERE be used together?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tips
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ques-find-customers-who-purchased-at-least-3-distinct-products" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ques: Find customers who purchased at least 3 DISTINCT products
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alias-in-having" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alias in HAVING
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#having-with-case-when-agg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HAVING with CASE WHEN AGG()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subqueries-with-having-where-vs-having-using-subqueries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subqueries with HAVING (WHERE vs HAVING using Subqueries)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subqueries with HAVING (WHERE vs HAVING using Subqueries)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trick-question-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trick Question 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-breakdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query Breakdown
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-not-to-do-in-having" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What NOT to do in HAVING
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-execution-optimization-doubt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query Execution &amp; Optimization Doubt
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -629,7 +749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/SQL/NullSemantics.html" class="md-nav__link">
+      <a href="NullSemantics.html" class="md-nav__link">
         
   
   
@@ -657,7 +777,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/SQL/DifferenceBetween.html" class="md-nav__link">
+      <a href="DifferenceBetween.html" class="md-nav__link">
         
   
   
@@ -685,7 +805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/SQL/LeetcodeList.html" class="md-nav__link">
+      <a href="LeetcodeList.html" class="md-nav__link">
         
   
   
@@ -713,7 +833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/SQL/InterviewTheory.html" class="md-nav__link">
+      <a href="InterviewTheory.html" class="md-nav__link">
         
   
   
@@ -741,7 +861,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/SQL/InterviewCoding.html" class="md-nav__link">
+      <a href="InterviewCoding.html" class="md-nav__link">
         
   
   
@@ -830,7 +950,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/DSA/LinkedList/" class="md-nav__link">
+      <a href="../DSA/LinkedList/" class="md-nav__link">
         
   
   
@@ -919,7 +1039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/Python/OOP/" class="md-nav__link">
+      <a href="../Python/OOP/" class="md-nav__link">
         
   
   
@@ -954,7 +1074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/DVER/First_MDT.html" class="md-nav__link">
+      <a href="../DVER/First_MDT.html" class="md-nav__link">
         
   
   
@@ -981,7 +1101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/EEDM/First_MDT.html" class="md-nav__link">
+      <a href="../EEDM/First_MDT.html" class="md-nav__link">
         
   
   
@@ -1008,7 +1128,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/Interviews/Resume.html" class="md-nav__link">
+      <a href="../Interviews/Resume.html" class="md-nav__link">
         
   
   
@@ -1089,7 +1209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/Spark/Introduction.html" class="md-nav__link">
+      <a href="../Spark/Introduction.html" class="md-nav__link">
         
   
   
@@ -1117,7 +1237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="topics/Spark/Architechture.html" class="md-nav__link">
+      <a href="../Spark/Architechture.html" class="md-nav__link">
         
   
   
@@ -1162,8 +1282,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1172,46 +1290,168 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sql-todo" class="md-nav__link">
+  <a href="#having-clause" class="md-nav__link">
     <span class="md-ellipsis">
       
-        SQL Todo
+        HAVING Clause
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HAVING Clause">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-can-we-use-group-by-wo-having" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q1: Can we use GROUP BY w/o HAVING?
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#data-engineering-todo" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#q2-can-we-use-having-wo-group-by" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Data engineering TODO
+        Q2: Can we use HAVING w/o GROUP BY?
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#data-certificates-todo" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#q3-can-having-filter-a-non-agg-column-can-having-be-used-wo-agg" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Data Certificates Todo
+        Q3: Can HAVING filter a non-agg. column? / Can HAVING be used w/o agg()?
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#job-search-sites" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#q4-can-having-where-be-used-together" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Job search sites
+        Q4: Can HAVING, WHERE be used together?
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tips
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ques-find-customers-who-purchased-at-least-3-distinct-products" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ques: Find customers who purchased at least 3 DISTINCT products
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alias-in-having" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alias in HAVING
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#having-with-case-when-agg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HAVING with CASE WHEN AGG()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subqueries-with-having-where-vs-having-using-subqueries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subqueries with HAVING (WHERE vs HAVING using Subqueries)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subqueries with HAVING (WHERE vs HAVING using Subqueries)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trick-question-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trick Question 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-breakdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query Breakdown
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-not-to-do-in-having" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What NOT to do in HAVING
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-execution-optimization-doubt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query Execution &amp; Optimization Doubt
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1235,103 +1475,144 @@
   
 
 
-<h1 id="study-notes">Study Notes</h1>
-<h3 id="sql-todo">SQL Todo</h3>
-<p>As of [29th Septmeber, 2026]</p>
-<ul class="task-list">
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Retention analysis karna usme multiple queries 
-like returning users, monthly active users etc</p>
-</li>
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Triggers, Transactions and Stored Procedures padhne.</p>
-</li>
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Query OPtimisations Speak and explain your approach.</p>
-</li>
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Case Studies kar lo as mentioned in Resume.</p>
-</li>
-</ul>
-<h3 id="data-engineering-todo">Data engineering TODO</h3>
-<p>As of [29th Septmeber, 2026]</p>
-<ul class="task-list">
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Expand to--&gt;&gt;</p>
+  <h1>Having</h1>
+
+<h2 id="having-clause">HAVING Clause</h2>
 <ul>
 <li>
-<p>NO SQL databases </p>
+<p>Filter groups after aggregation.</p>
 </li>
 <li>
-<p>Vector Databases</p>
-</li>
-<li>
-<p>Working with Json </p>
+<p>Primarily used to add <code>agg()</code> while filtering (Note: WHERE में नहीं कर सकते).</p>
 </li>
 </ul>
-</li>
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Video/ Audio data processing</p>
-</li>
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> </p>
+<h3 id="q1-can-we-use-group-by-wo-having">Q1: Can we use GROUP BY w/o <code>HAVING</code>?</h3>
+<ul>
+<li><strong>Ans</strong>: Yes, when we don't want to filter after aggregation.</li>
+</ul>
+<h3 id="q2-can-we-use-having-wo-group-by">Q2: Can we use <code>HAVING</code> w/o GROUP BY?</h3>
+<ul>
+<li><strong>Ans</strong>: Yes.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span>
+<span class="w">    </span><span class="k">HAVING</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">100</span>
+</code></pre></div>
+<ul>
+<li>Notes:<ul>
+<li>पूरा table result set का 1 group मानेगा.</li>
+<li>Total rows &gt; 100 ⇒ True.</li>
+<li>Total rows &lt; 100 ⇒ No rows.</li>
+</ul>
 </li>
 </ul>
-<h3 id="data-certificates-todo">Data Certificates Todo</h3>
-<ul class="task-list">
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Azure DP-900 : Azure data fundamentals</p>
-</li>
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Azure DP-700 : Azure Fabric Data engineer Associate</p>
-</li>
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> AWS DEA-CO1 : AWS Certifed Data Engineer</p>
-</li>
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Databricks Certified Data Engineer Associate</p>
-</li>
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Databricks Certified Data Engineer Professional</p>
-</li>
+<h3 id="q3-can-having-filter-a-non-agg-column-can-having-be-used-wo-agg">Q3: Can <code>HAVING</code> filter a non-agg. column? / Can <code>HAVING</code> be used w/o <code>agg()</code>?</h3>
+<ul>
+<li><strong>Ans</strong>: Yes (DB-dependent), but that defies the purpose of <code>HAVING</code> (फिर तो WHERE ही use करना).</li>
 </ul>
-<h3 id="job-search-sites">Job search sites</h3>
+<h3 id="q4-can-having-where-be-used-together">Q4: Can <code>HAVING</code>, <code>WHERE</code> be used together?</h3>
 <ul>
 <li>
-<p>AngleList</p>
+<p>Find employees having <code>Avg(Salary) &gt; 50K</code> for "IT" department.</p>
 </li>
 <li>
-<p>CarrerCloud</p>
+<p>(समझना)</p>
+</li>
+</ul>
+<h3 id="tips">Tips</h3>
+<ol>
+<li>
+<p>When using <code>COUNT(*)</code> in <code>HAVING</code>, पूरा NULL semantics का ध्यान रखना.</p>
 </li>
 <li>
-<p>CareerBuilder</p>
+<p><code>HAVING</code> w/ Join ⇒ use <code>COUNT(col-name)</code>.</p>
+</li>
+</ol>
+<h3 id="ques-find-customers-who-purchased-at-least-3-distinct-products">Ques: Find customers who purchased at least 3 DISTINCT products</h3>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">cust_id</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">orders</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">cust_id</span>
+<span class="k">HAVING</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">prod_id</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">3</span>
+</code></pre></div>
+<h3 id="alias-in-having">Alias in HAVING</h3>
+<ul>
+<li>Can't be used (Query Exec. Order).</li>
+</ul>
+<h3 id="having-with-case-when-agg">HAVING with CASE WHEN AGG()</h3>
+<ul>
+<li>Ques: Find customers who made at least 3 purchases &amp; at least one above ₹1000</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">cust_id</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span>
+<span class="w">    </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">cust_id</span>
+<span class="w">    </span><span class="k">HAVING</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">       </span><span class="k">AND</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div>
+<h2 id="subqueries-with-having-where-vs-having-using-subqueries">Subqueries with HAVING (WHERE vs HAVING using Subqueries)</h2>
+<h3 id="trick-question-1">Trick Question 1</h3>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">dept</span><span class="p">,</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">dept</span>
+<span class="k">HAVING</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span>
+<span class="p">);</span>
+</code></pre></div>
+<h3 id="query-breakdown">Query Breakdown</h3>
+<ul>
+<li>
+<p><strong>Subquery</strong>: Calculates the overall company-wide <code>AVG(salary)</code> across all employees and departments.</p>
 </li>
 <li>
-<p>FlexJobs</p>
+<p><strong>Main Query <code>AVG(salary)</code></strong>: Calculates the department-wise average salary after <code>GROUP BY dept</code>.</p>
 </li>
 <li>
-<p>FreeLancer</p>
+<p><strong>Meaning</strong>: Finds departments whose average salary is greater than the overall company-wide average salary (Group Avg vs. Overall Avg).</p>
+</li>
+</ul>
+<h3 id="what-not-to-do-in-having">What NOT to do in HAVING</h3>
+<ol>
+<li>
+<p><strong>Do not use Window Functions directly in HAVING</strong>:</p>
+<ul>
+<li>Solution: Use a CTE or subquery instead.</li>
+</ul>
 </li>
 <li>
-<p>GlassDoor</p>
+<p><strong>Do not use non-aggregated columns in HAVING</strong>:</p>
+<ul>
+<li>
+<p>Incorrect Example: <code>HAVING dept = 'IT'</code> or <code>HAVING salary &gt; 10000</code>.</p>
 </li>
 <li>
-<p>Jobespresso</p>
+<p>Correct Approach: Use <code>WHERE</code> instead, as non-aggregated conditions belong to the row-filtering stage.</p>
 </li>
 <li>
-<p>Remotive</p>
+<p>Performance Benefit: Using <code>WHERE</code> provides better performance because it filters out rows early before grouping occurs.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="query-execution-optimization-doubt">Query Execution &amp; Optimization Doubt</h3>
+<ul>
+<li><strong>Scenario:</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">dept</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span>
+<span class="w">    </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">dept</span>
+<span class="w">    </span><span class="k">HAVING</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li>
+<p><strong>Question</strong>: Is <code>COUNT(*)</code> calculated twice (once in <code>SELECT</code> and once in <code>HAVING</code>)?</p>
 </li>
 <li>
-<p>Stack Overflow Jobs</p>
-</li>
-<li>
-<p>SimplyHired</p>
-</li>
-<li>
-<p>SkiptheDrive</p>
-</li>
-<li>
-<p>WorkingNomads</p>
+<p><strong>Answer</strong>: No.</p>
+<ul>
+<li>The temporary result set is already calculated during the grouping phase with <code>COUNT(*)</code>.</li>
+<li><code>HAVING</code> only compares the already calculated value against <code>&gt; 10</code>.</li>
+<li>Note: The aggregated values are cached/stored in memory (e.g., hash tables) during execution.</li>
+</ul>
 </li>
 </ul>
 
@@ -1383,12 +1664,12 @@ like returning users, monthly active users etc</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.expand", "content.code.copy"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="javascripts/note-collapse.js"></script>
+        <script src="../../javascripts/note-collapse.js"></script>
       
     
   </body>
