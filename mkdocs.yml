@@ -65,9 +65,9 @@ nav:
 
       - NULL Semantics: topics/SQL/NullSemantics.md
       - Difference: topics/SQL/DifferenceBetween.md
-      - Leetcode List: topics/SQL/LeetcodeSQL.md
-      - Interview Questions: topics/SQL/Interview.md
-      - SQL Coding Questions: topics/SQL/SQLCodingQuestions.md
+      - Leetcode List: topics/SQL/LeetcodeList.md
+      - Interview Questions: topics/SQL/InterviewTheory.md
+      - SQL Coding Questions: topics/SQL/InterviewCoding.md
 
   - DSA:
       - LinkedList: topics/DSA/LinkedList/
@@ -79,4 +79,8 @@ nav:
 
   - EEDM: topics/EEDM/First_MDT.md
 
-  - Resume Tips: topics/Resume.md
+  - Resume Tips: topics/Interviews/Resume.md
+
+  - Spark:
+    - Introduction: topics/Spark/Introduction.md
+    - Architechture: topics/Spark/Architechture.md

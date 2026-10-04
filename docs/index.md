@@ -22,7 +22,7 @@ like returning users, monthly active users etc
 
 As of [29th Septmeber, 2026]
 
-- [ ] Expand to even -->>
+- [ ] Expand to-->>
     
     - NO SQL databases 
 

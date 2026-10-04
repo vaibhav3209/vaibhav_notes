@@ -23,7 +23,7 @@
    
   `<a id="leetcode-<questionnumber>"></a>`
 
-   Usage in file: [docs/topics/sql/leetcode_sql.md](docs/topics/SQL/LeetcodeSQL.md)
+   Usage in file: [docs/topics/sql/leetcode_sql.md](docs/topics/SQL/LeetcodeList.md)
 
 
 - Using `Mermaid` library for flow charts, graphs, etc. 
