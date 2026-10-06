@@ -70,7 +70,9 @@ nav:
       - SQL Coding Questions: topics/SQL/InterviewCoding.md
 
   - DSA:
+      - DSA List: topics/DSA/DSAList.md
       - LinkedList: topics/DSA/LinkedList/
+      - DSA Patterns: topics/DSA/DSAPatterns.md
 
   - Python:
       - OOP: topics/Python/OOP/
