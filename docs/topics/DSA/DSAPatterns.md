@@ -1,9 +1,14 @@
-## 1. Sliding Window { #sliding-window }
+## 1. Arrays {#arrays}
+
+[← Back to DSA list](DSAList.md#arrays)
+
+
+## 2. Sliding Window { #sliding-window }
 
 [← Back to DSA list](DSAList.md#sliding-window)
 
 
-### 1.0 Subarray vs Subsequences vs Subsets
+### 2.0 Subarray vs Subsequences vs Subsets
 === "**Subarray**"
 
     **arr = [1, 2, 1, 3, 2]**
@@ -94,7 +99,7 @@
     - Use: backtracking, bitmasking, power set problems
 
 
-### 1.1 Why Sliding Window (Interview Explaination)??
+### 2.1 Why Sliding Window (Interview Explaination)??
 
 Sliding window is used to solve problems on contiguous subarrays or substrings
 efficiently. 
@@ -107,7 +112,7 @@ We maintain a window and update it incrementally as it moves: add the
 new element entering the window and remove the element leaving it.
 
 
-### 1.2 What Can Be Tracked Inside a Window??
+### 2.2 What Can Be Tracked Inside a Window??
 
 
 - Sum/Product of elements (positive numbers only)
@@ -131,7 +136,7 @@ new element entering the window and remove the element leaving it.
 - Window length (right - left + 1)
 
 
-### 1.3 Complexity
+### 2.3 Complexity
 
 
 Every element enters the window once and leaves it once, so each pointer moves
@@ -139,10 +144,10 @@ at most n steps.
 
 Time complexity is **O(n)**. 
 
-### 1.x Template: 
+### 2.x Template: 
 
 
-### 1.4 Limitations:
+### 2.4 Limitations:
 
 Sliding Window can't be used when: 
 
@@ -172,7 +177,7 @@ element increases the sum and removing an element decreases it.
     Fix: use prefix sum with remainder hashmap.
 
 
-### 1.5 FAQs
+### 2.5 FAQs
 
 1. Which Approach to use??
 
@@ -184,14 +189,59 @@ element increases the sum and removing an element decreases it.
 | No risk of forgetting to increment `right` | Forgetting `right += 1` causes an infinite loop |
 
 
-## 2. Two Pointers {#two-pointers}
-
-[← Back to DSA list](DSAList.md#two-pointers)
 
 
-## 3. Arrays {#arrays}
 
-[← Back to DSA list](DSAList.md#arrays)
+
+
+## 4. LinkedLists {#linkedlist}
+
+[← Back to DSA list](DSAList.md#linkedlist)
+
+### 4.1 What are Linked Lists?
+
+!!! danger "Don't Say"
+    Linked Lists are linear Data Structures...... OR 
+    Stored Linearly in memory.
+
+
+!!! tip "Say"
+    
+    1. Linked Lists are Data structres that store data in form of Nodes,
+        along with reference to the next node.
+
+    2. It can only access data in sequential manner, forward for singly L.L.
+
+    3. It has 2 components: 
+
+        -> `val` : can store any data type [in PYTHON]
+
+        -> `next` : pointer to next node
+
+
+
+### 4.2 WHy was  Linked Lists developed ?
+
+| Array limitation                                        | 	How linked list helps                              |
+|---------------------------------------------------------|-----------------------------------------------------|
+| Fixed size, or costly resizing (copy to a bigger block) | 	 Grows and shrinks one node at a time.             |
+| Needs contiguous memory	                                | Nodes can be anywhere in memory, linked by pointers |
+| Insert/delete in the middle shifts elements, O(n)       | 	O(1) once you have a reference to the position     |
+| Wasted capacity from over-allocation                    | 	Allocates exactly what is needed                   |
+
+
+
+### 4.3 Array vs Linked List (Python Specific)
+| Arrays                                                                                                               | Linked List                                                           |
+|----------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
+| Elements stored in contigous memory locations and indexed access.                                                    | Elements stored in non contigous locations and accessed via pointers. |
+| Linear and Binary Search possible.                                                                                   | Only linear search intuitively.                                       |
+| Acessing : O(1)<br/>   Insert at end : O(1)<br/> Delete at end : O(1) <br/>Insert/Delete at start: O(n) [Ammortized] | O(1) if Position is known.<br/> O(n) from head pointer.               |
+| Memory is allocated one time ==>> can need resizing                                                                  | Memory allocated upon creation ==>> No resiszing concept.             |
+| Memory (per element) is **less**.                                                                                    | Memory (per element) is More.                                         |
+| Bettter **Cache Locality**. ==>> Cache Friendly (since contigouus stored)                                            | Poor Cache locality. ==>> **Not** cache riendly.                      |
+
+
 
 
 ## Tips:
