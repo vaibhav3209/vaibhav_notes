@@ -1,8 +1,12 @@
+# -----------  Site URLS  ---------------------
 site_name: Vaibhav Notes
 site_url: https://vaibhav3209.github.io/vaibhav_notes/
 repo_url: https://github.com/vaibhav3209/vaibhav_notes
 use_directory_urls: false
+# -------------------------------------------
 
+
+# --------- Site Configs -----------------------
 theme:
   name: material
 
@@ -25,64 +29,82 @@ theme:
     - navigation.sections
     - navigation.expand
     - content.code.copy
+# --------------------------------------------
 
 
-extra_css:
-  - stylesheets/extra.css
-
-
-extra_javascript:
-  - javascripts/note-collapse.js
-
+# --------- Tools & Extensions ----------------
 markdown_extensions:
   - md_in_html
-  - attr_list       # to refer css atributes like {.back to list}
+
+  - attr_list
+
   - tables
-  - admonition      # for !!! tip, !!! question
+
+  - admonition
+
   - pymdownx.details
-  - pymdownx.tasklist:      # For Todo checkboxes
+
+  - pymdownx.tasklist:
         custom_checkbox: true
+
   - pymdownx.tabbed:
         alternate_style: true
+
   - pymdownx.superfences:
         custom_fences:
           - name: mermaid
             class: mermaid
             format: !!python/name:pymdownx.superfences.fence_code_format
+# --------------------------------------------
 
 
+# ---------- Table of Contents ---------------
 nav:
   - Home: index.md
+
 
   - SQL:
       - Clauses:
           - Select: topics/SQL/Select.md
 #          - From: topics/SQL/From.md
           - Where: topics/SQL/Where.md
+
           - With: topics/SQL/With.md
+
           - Group By: topics/SQL/GroupBy.md
+
           - Having: topics/SQL/Having.md
 
       - NULL Semantics: topics/SQL/NullSemantics.md
+
       - Difference: topics/SQL/DifferenceBetween.md
+
       - Leetcode List: topics/SQL/LeetcodeList.md
+
       - Interview Questions: topics/SQL/InterviewTheory.md
+
       - SQL Coding Questions: topics/SQL/InterviewCoding.md
 
+
   - DSA:
-      - DSA List: topics/DSA/DSAList.md
-      - LinkedList: topics/DSA/LinkedList/
-      - DSA Patterns: topics/DSA/DSAPatterns.md
+      - List: topics/DSA/List.md
 
-  - Python:
-      - OOP: topics/Python/OOP/
+      - Basics: topics/DSA/Basics.md
 
-  - DVER: topics/DVER/First_MDT.md
+      - Tips: topics/DSA/Tips.md
 
-  - EEDM: topics/EEDM/First_MDT.md
+      - 1. Array: topics/DSA/Arrays.md
+
+      - 2. Sliding Window: topics/DSA/SlidingWindow.md
+
+      - 4. Linked List: topics/DSA/LinkedList.md
+
 
   - Resume Tips: topics/Interviews/Resume.md
 
+
   - Spark:
     - Introduction: topics/Spark/Introduction.md
+
     - Architechture: topics/Spark/Architechture.md
+# ---------------------------------------------------

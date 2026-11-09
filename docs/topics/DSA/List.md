@@ -1,4 +1,3 @@
-## Topics
 [Striver450]: https://takeuforward.org/prep-hub/strivers-a2z-dsa-sheet?page=sheet
 [Neetcode250]: https://neetcode.io/practice/practice/neetcode250
 [Leetcode Top100 Liked]: https://leetcode.com/studyplan/top-100-liked/
@@ -6,7 +5,7 @@
 
 ### 1. <span id="arrays"></span>Arrays
 
-[See Notes](DSAPatterns.md#arrays)
+[See Notes](Arrays.md)
 
 | S.no. | Problem                       | Notes                                                        | Importance |
 |-------|---|---|---|
@@ -15,7 +14,7 @@
 
 ### 2. <span id="sliding-window"></span> Sliding Window 
     
-[See Notes](DSAPatterns.md#sliding-window)
+[See Notes](SlidingWindow.md)
 
 | S.no. | Problem                                                                                                                          | Sheet                                       | Importance                                                                          |
 |-------|----------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------|-------------------------------------------------------------------------------------|
@@ -34,9 +33,11 @@
 
 ### 3. <span id="linkedlist"></span>Linked Lists
 
-[See Notes](DSAPatterns.md#linkedlist)
+[See Notes](LinkedList.md)
 
 !!! danger "TODO: Recursive approach"
+
+    - Traversal printing(changing order of recursive calls)
     
     - Insertion / Deletion in LL
 
@@ -66,8 +67,8 @@
 | [Leetcode 23: Merge k Sorted LL](https://leetcode.com/problems/merge-k-sorted-lists/description/)                        | Use same approach as above.  <br/> (Also called **Flattening a Linkedlist**) | ⭐⭐         |
 | [Leetcode 138: Copy List w/ Random pointer](https://leetcode.com/problems/copy-list-with-random-pointer/description/)    | Design                                                                      | ⭐⭐⭐        |
 | [Leetcode 622: Design Circular queue](https://leetcode.com/problems/design-circular-queue/description/)                  | Design                                                                      | ⭐⭐         |
-| [Leetcode 146](https://leetcode.com/problems/lru-cache/description/)                                                     | Design (My soln + DoublyLL soln.)                                           | ⭐⭐⭐        |
-| [Leetcode 460](https://leetcode.com/problems/lfu-cache/description/)                                                     | Design                                                                      | ⭐⭐⭐        |
+| [Leetcode 146: LRU Cache](https://leetcode.com/problems/lru-cache/description/)                                          | Design (My soln + DoublyLL soln.)                                           | ⭐⭐⭐        |
+| [Leetcode 460: LFU Cache](https://leetcode.com/problems/lfu-cache/description/)                                          | Design                                                                      | ⭐⭐⭐        |
 
 
 ### 5. <span id="binarysearch"></span>Binary Search
