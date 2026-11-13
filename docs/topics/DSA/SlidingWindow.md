@@ -42,7 +42,8 @@
 
     2. Order kept,gaps allowed
 
-    3. 2^n = 32 by position, but only 26 distinct (including empty) because of the repeated values.
+    3. 2^n (considering 1 empty subarray else 2^(n-1))
+        = 32 by position, but only 26 distinct (including empty) because of the repeated values.
 
     - Valid Subsequences
 
@@ -181,3 +182,12 @@ element increases the sum and removing an element decreases it.
 | `left` is handled by an inner `while` that shrinks the window | Need to write `right += 1` manually |
 | No risk of forgetting to increment `right` | Forgetting `right += 1` causes an infinite loop |
 
+
+2. My understanding of sliding window..
+
+- Sliding window basic approach k alawa count wali approach (with 2 functions) tab lagana 
+    jab pta nhi chale right expand/ left shrink se sahi ans ayega.
+
+- both jaane se sahi ans aa rha hai tab use different approach.
+
+- ya phir kuch subarrays beech mein skip ho rhe ho

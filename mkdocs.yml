@@ -91,13 +91,15 @@ nav:
 
       - Basics: topics/DSA/Basics.md
 
-      - Tips: topics/DSA/Tips.md
 
       - 1. Array: topics/DSA/Arrays.md
 
       - 2. Sliding Window: topics/DSA/SlidingWindow.md
 
       - 4. Linked List: topics/DSA/LinkedList.md
+
+
+  - PY-Knowledge and DSA Tips: topics/Pyknowledge_DSATips.md
 
 
   - Resume Tips: topics/Interviews/Resume.md
