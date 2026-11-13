@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://vaibhav3209.github.io/vaibhav_notes/topics/DSA/DSAPatterns.html">
+        <link rel="canonical" href="https://vaibhav3209.github.io/vaibhav_notes/topics/DSA/LinkedList.html">
       
       
-        <link rel="prev" href="DSAList.html">
+        <link rel="prev" href="SlidingWindow.html">
       
       
-        <link rel="next" href="../DVER/First_MDT.html">
+        <link rel="next" href="../Pyknowledge_DSATips.html">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>DSA Patterns - Vaibhav Notes</title>
+        <title>4. Linked List - Vaibhav Notes</title>
       
     
     
@@ -50,8 +50,6 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
-    
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -78,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#arrays" class="md-skip">
+        <a href="#41-what-are-linked-lists" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              DSA Patterns
+              4. Linked List
             
           </span>
         </div>
@@ -741,14 +739,14 @@
   
   
     <li class="md-nav__item">
-      <a href="DSAList.html" class="md-nav__link">
+      <a href="List.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    DSA List
+    List
   
 
     
@@ -769,14 +767,70 @@
   
   
     <li class="md-nav__item">
-      <a href="LinkedList/" class="md-nav__link">
+      <a href="Basics.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    LinkedList
+    Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Arrays.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Array
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SlidingWindow.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Sliding Window
   
 
     
@@ -811,7 +865,7 @@
   <span class="md-ellipsis">
     
   
-    DSA Patterns
+    4. Linked List
   
 
     
@@ -822,14 +876,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="DSAPatterns.html" class="md-nav__link md-nav__link--active">
+      <a href="LinkedList.html" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    DSA Patterns
+    4. Linked List
   
 
     
@@ -853,123 +907,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#arrays" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Arrays
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sliding-window" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Sliding Window
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Sliding Window">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#20-subarray-vs-subsequences-vs-subsets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.0 Subarray vs Subsequences vs Subsets
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#21-why-sliding-window-interview-explaination" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.1 Why Sliding Window (Interview Explaination)??
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22-what-can-be-tracked-inside-a-window" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.2 What Can Be Tracked Inside a Window??
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23-complexity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.3 Complexity
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2x-template" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.x Template:
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#24-limitations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.4 Limitations:
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#25-faqs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.5 FAQs
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#linkedlist" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. LinkedLists
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. LinkedLists">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#41-what-are-linked-lists" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -979,8 +916,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#42-why-was-linked-lists-developed" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -990,8 +927,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#43-array-vs-linked-list-python-specific" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1001,48 +938,15 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
-  <a href="#tips" class="md-nav__link">
+  <a href="#44-applications-of-linked-list" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tips:
+        4.4 Applications of Linked List
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Tips:">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-python-assignments" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Python Assignments:
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-when-to-use-range-vs-enumerate-vs-in" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. When to use Range vs Enumerate vs in ??
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1068,131 +972,15 @@
   
   
   
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Python
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Python
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
     <li class="md-nav__item">
-      <a href="../Python/OOP/" class="md-nav__link">
+      <a href="../Pyknowledge_DSATips.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    OOP
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../DVER/First_MDT.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    DVER
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../EEDM/First_MDT.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    EEDM
+    PY-Knowledge and DSA Tips
   
 
     
@@ -1254,10 +1042,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
         
           
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
             
   
   
@@ -1275,8 +1063,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1374,123 +1162,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#arrays" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Arrays
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sliding-window" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Sliding Window
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Sliding Window">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#20-subarray-vs-subsequences-vs-subsets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.0 Subarray vs Subsequences vs Subsets
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#21-why-sliding-window-interview-explaination" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.1 Why Sliding Window (Interview Explaination)??
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22-what-can-be-tracked-inside-a-window" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.2 What Can Be Tracked Inside a Window??
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23-complexity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.3 Complexity
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2x-template" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.x Template:
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#24-limitations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.4 Limitations:
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#25-faqs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.5 FAQs
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#linkedlist" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. LinkedLists
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. LinkedLists">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#41-what-are-linked-lists" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1500,8 +1171,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#42-why-was-linked-lists-developed" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1511,8 +1182,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#43-array-vs-linked-list-python-specific" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1522,48 +1193,15 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
-  <a href="#tips" class="md-nav__link">
+  <a href="#44-applications-of-linked-list" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tips:
+        4.4 Applications of Linked List
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Tips:">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-python-assignments" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Python Assignments:
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-when-to-use-range-vs-enumerate-vs-in" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. When to use Range vs Enumerate vs in ??
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1587,250 +1225,9 @@
   
 
 
-  <h1>DSA Patterns</h1>
+  <h1>4. Linked List</h1>
 
-<h2 id="arrays">1. Arrays</h2>
-<p><a href="DSAList.html#arrays">← Back to DSA list</a></p>
-<h2 id="sliding-window">2. Sliding Window</h2>
-<p><a href="DSAList.html#sliding-window">← Back to DSA list</a></p>
-<h3 id="20-subarray-vs-subsequences-vs-subsets">2.0 Subarray vs Subsequences vs Subsets</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1"><strong>Subarray</strong></label><label for="__tabbed_1_2"><strong>Subsequence</strong></label><label for="__tabbed_1_3"><strong>Subset(Mathematical one)</strong></label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p><strong>arr = [1, 2, 1, 3, 2]</strong></p>
-<ol>
-<li>
-<p>Contiguous part of an array,</p>
-</li>
-<li>
-<p>Order kept, Gaps <strong>not</strong> Allowed</p>
-</li>
-<li>
-<p>n(n+1)/2 non empty subarrays in total.</p>
-</li>
-<li>
-<p>All valid subarrays:</p>
-<ul>
-<li>
-<p>[1], [2], [1], [3], [2]</p>
-</li>
-<li>
-<p>[1,2], [2,1], [1,3], [3,2]</p>
-</li>
-<li>
-<p>[1,2,1], [2,1,3], [1,3,2]</p>
-</li>
-<li>
-<p>[1,2,1,3], [2,1,3,2]</p>
-</li>
-<li>
-<p>[1,2,1,3,2]</p>
-</li>
-</ul>
-</li>
-<li>
-<p>Invalid: </p>
-<ul>
-<li>
-<p>[1,1] (skips 2), </p>
-</li>
-<li>
-<p>[3,1] (order changed), </p>
-</li>
-<li>
-<p>[2,3] (skips 1)</p>
-</li>
-</ul>
-</li>
-<li>
-<p>Use: sliding window, Kadane's algorithm, prefix sums</p>
-</li>
-</ol>
-</div>
-<div class="tabbed-block">
-<p><strong>arr = [1, 2, 1, 3, 2]</strong></p>
-<ol>
-<li>
-<p>Non contigous part of array</p>
-</li>
-<li>
-<p>Order kept,gaps allowed</p>
-</li>
-<li>
-<p>2^n = 32 by position, but only 26 distinct (including empty) because of the repeated values.</p>
-</li>
-<li>
-<p>Valid Subsequences</p>
-<ul>
-<li>
-<p>[], [1], [2], [3]</p>
-</li>
-<li>
-<p>[1,2], [1,1], [1,3], [2,1], [2,3], [2,2], [3,2]</p>
-</li>
-<li>
-<p>[1,2,1], [1,2,3], [1,2,2], [1,1,3], [1,1,2], [1,3,2], [2,1,3], [2,1,2], [2,3,2]</p>
-</li>
-<li>
-<p>[2,1,3,2], [1,1,3,2], [1,2,3,2], [1,2,1,2], [1,2,1,3]</p>
-</li>
-<li>
-<p>[1,2,1,3,2]</p>
-</li>
-</ul>
-</li>
-<li>
-<p>Invalid:</p>
-<ul>
-<li>
-<p>[3,1] (3 comes after both 1s)</p>
-</li>
-<li>
-<p>[3,2,1] (order broken), </p>
-</li>
-<li>
-<p>[1,1,1] (only two 1s exist)</p>
-</li>
-</ul>
-</li>
-<li>
-<p>Use: dynamic programming (LIS, LCS, distinct subsequences)</p>
-</li>
-</ol>
-</div>
-<div class="tabbed-block">
-<p><strong>arr = [1, 2, 1, 3, 2]</strong></p>
-<ol>
-<li>
-<p>No repeats, </p>
-</li>
-<li>
-<p>Order ignored. </p>
-</li>
-<li>
-<p>Values are {1,2,3}, so 2³ = 8 subsets including the empty set.</p>
-</li>
-<li>
-<p>All valid: {}, {1}, {2}, {3}, {1,2}, {1,3}, {2,3}, {1,2,3}</p>
-</li>
-<li>
-<p>Order doesn't matter: {3,1} is the same subset as {1,3}</p>
-</li>
-<li>
-<p>Invalid: </p>
-<ul>
-<li>
-<p>{1,1,2} (repeat), </p>
-</li>
-<li>
-<p>{4} (not in the array),</p>
-</li>
-<li>
-<p>{1,2,2} (repeat)</p>
-</li>
-</ul>
-</li>
-<li>
-<p>Use: backtracking, bitmasking, power set problems</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<h3 id="21-why-sliding-window-interview-explaination">2.1 Why Sliding Window (Interview Explaination)??</h3>
-<p>Sliding window is used to solve problems on contiguous subarrays or substrings
-efficiently. </p>
-<p>Instead of recomputing the answer for every subarray from scratch,
-in which every element inside overlapping windows gets included in the calculation
-multiple times.</p>
-<p>We maintain a window and update it incrementally as it moves: add the
-new element entering the window and remove the element leaving it.</p>
-<h3 id="22-what-can-be-tracked-inside-a-window">2.2 What Can Be Tracked Inside a Window??</h3>
-<ul>
-<li>
-<p>Sum/Product of elements (positive numbers only)</p>
-</li>
-<li>
-<p>Count of elements (or count of 0s, 1s, flips, etc.)</p>
-</li>
-<li>
-<p>Frequency map of characters or numbers</p>
-</li>
-<li>
-<p>Set of unique elements (for duplicate checks)</p>
-</li>
-<li>
-<p>Number of distinct elements</p>
-</li>
-<li>
-<p>Window maximum or minimum (using a monotonic deque)</p>
-</li>
-<li>
-<p>Window length (right - left + 1)</p>
-</li>
-</ul>
-<h3 id="23-complexity">2.3 Complexity</h3>
-<p>Every element enters the window once and leaves it once, so each pointer moves
-at most n steps. </p>
-<p>Time complexity is <strong>O(n)</strong>. </p>
-<h3 id="2x-template">2.x Template:</h3>
-<h3 id="24-limitations">2.4 Limitations:</h3>
-<p>Sliding Window can't be used when: </p>
-<ol>
-<li>
-<p>If the solution needs to revisit or
-re-check earlier positions, as both boundaries can move only forward.</p>
-</li>
-<li>
-<p>Negative numbers are present as the logic assumes that adding an
-element increases the sum and removing an element decreases it.</p>
-<p>Example: arr = [2, 4, -3, 1], find a subarray with sum = 3</p>
-<p>Fix: use prefix sum + hashmap.</p>
-</li>
-<li>
-<p>When the condition is not monotonic.</p>
-<p>Sliding window needs a rule for when to shrink: once the window turns
-invalid, expanding further must never make it valid again (or vice versa).
-If validity flips back and forth, we cannot decide when to move left.</p>
-<p>Example: longest subarray with sum divisible by 3, arr = [1, 2, 4, 2].</p>
-<p>[1, 2] sum 3 is valid, [1, 2, 4] sum 7 is invalid, [1, 2, 4, 2] sum 9 is
-valid again. Valid -&gt; invalid -&gt; valid, so "shrink when invalid" gives wrong
-answers.</p>
-<p>Fix: use prefix sum with remainder hashmap.</p>
-</li>
-</ol>
-<h3 id="25-faqs">2.5 FAQs</h3>
-<ol>
-<li>Which Approach to use??</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th><code>for right in range(len(arr)):</code></th>
-<th><code>while right &lt; len(arr):</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Use normally in almost every sliding window</td>
-<td>Needed only in rare cases</td>
-</tr>
-<tr>
-<td><code>right</code> moves exactly once per iteration while expanding</td>
-<td><code>right</code> can move more than once, or conditionally, before the window is processed</td>
-</tr>
-<tr>
-<td><code>left</code> is handled by an inner <code>while</code> that shrinks the window</td>
-<td>Need to write <code>right += 1</code> manually</td>
-</tr>
-<tr>
-<td>No risk of forgetting to increment <code>right</code></td>
-<td>Forgetting <code>right += 1</code> causes an infinite loop</td>
-</tr>
-</tbody>
-</table>
-<h2 id="linkedlist">4. LinkedLists</h2>
-<p><a href="DSAList.html#linkedlist">← Back to DSA list</a></p>
+<p><a href="List.html#linkedlist">← Back to list</a></p>
 <h3 id="41-what-are-linked-lists">4.1 What are Linked Lists?</h3>
 <div class="admonition danger">
 <p class="admonition-title">Don't Say</p>
@@ -1916,120 +1313,31 @@ Stored Linearly in memory.</p>
 </tr>
 </tbody>
 </table>
-<h2 id="tips">Tips:</h2>
-<h3 id="1-python-assignments">1. Python Assignments:</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">a, b = 0, 0 vs a = b = 0</label><label for="__tabbed_2_2"> += operator</label><label for="__tabbed_2_3">[[0]x3]x3 vs [[0 for _ in range(3)] for _ in range(3)]</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<table>
-<thead>
-<tr>
-<th>Tuple unpacking</th>
-<th>Chained assignment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>The right side 0, 0 is evaluated first into a tuple (0, 0), then that tuple is unpacked, with the first item going to a and the second to b. Each name gets its own separately evaluated value.</td>
-<td>The value on the right is evaluated once, then assigned to each name from left to right. Both names point to the same object.<br>Right side is evaluated only once, and both names point to the same object (same ref).</td>
-</tr>
-<tr>
-<td>✅ Safe for both mutable and immutable types.</td>
-<td>✅ Fine for Immutable types (int, str, tuple, None), since they can't change in place.</td>
-</tr>
-<tr>
-<td></td>
-<td>❌ Not safe for mutable types (list, dict, set), because a change through one name shows up in the other (the append problem).</td>
-</tr>
-<tr>
-<td><code>a, b = [], []</code><br><code>a.append(1)</code><br><code>print(b)        # []  -&gt; b is unaffected</code></td>
-<td><code>a = b = []</code><br><code>a.append(1)</code><br><code>print(b)        # [1]  -&gt; a and b are the same list</code><br><code>print(a is b)   # True</code></td>
-</tr>
-<tr>
-<td></td>
-<td>?? When chained assignment is useful for mutable types<br>Use it only when you purposely want one shared object under two names:<br>- Aliasing the same state: <code>config = settings = load_config()</code><br>- One shared resource: <code>db = conn = connect()</code><br>- Calling an expensive function only once: <code>data = backup = fetch_data()</code></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="tabbed-block">
+<h3 id="44-applications-of-linked-list">4.4 Applications of Linked List</h3>
 <ul>
 <li>
-<p><code>x += y</code> calls <code>__iadd__</code>, which modifies the object in place. </p>
+<p>Implementing other Data structures like:</p>
 </li>
 <li>
-<p><code>x = x + y</code> calls <code>__add__</code>, which builds a new object and <strong>REBINDS <code>x</code></strong>.
-Other names still point to the old object.</p>
+<p>Queue / Deque(Doubly LL)</p>
+</li>
+<li>
+<p>Hash table collision buckets.</p>
+</li>
+<li>
+<p>Stacks</p>
+</li>
+<li>
+<p>Adjacency Lists in Graphs</p>
+</li>
+<li>
+<p>Music Playback back and forth, Browser Navigation, File System
+Navigation etc.</p>
+</li>
+<li>
+<p>Job Scheduling in OS.</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">a</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>        <span class="c1"># [1, 2]  -&gt; modified in place, b sees it</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>        <span class="c1"># [1]     -&gt; a got a new list, b is untouched</span>
-</code></pre></div>
-<ul>
-<li>For lists, <code>+=</code> accepts any iterable, but <code>+</code> needs a list on both sides.</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">x</span> <span class="o">+=</span> <span class="s2">"ab"</span>       <span class="c1"># [1, 'a', 'b']  -&gt; works</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="s2">"ab"</span>    <span class="c1"># TypeError</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block"></div>
-</div>
-</div>
-<h3 id="2-when-to-use-range-vs-enumerate-vs-in">2. When to use Range vs Enumerate vs in ??</h3>
-<table>
-<thead>
-<tr>
-<th></th>
-<th><code>for x in arr</code></th>
-<th><code>enumerate(arr)</code></th>
-<th><code>range(n)</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Gives you</td>
-<td>Values</td>
-<td>(index, value) pairs</td>
-<td>Indices only</td>
-</tr>
-<tr>
-<td><strong>Traversal</strong></td>
-<td>Sequential, all elements</td>
-<td>Sequential, all elements</td>
-<td>Any start, stop, step</td>
-</tr>
-<tr>
-<td><strong>Access to neighbors (<code>i-1</code>, <code>i+1</code>)</strong></td>
-<td>No</td>
-<td>Not directly</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Modify elements in place</td>
-<td>No (<code>x</code> is just a reference to the element)</td>
-<td>Yes, <code>arr[i] = ...</code> using <code>i</code></td>
-<td>Yes, <code>arr[i] = ...</code></td>
-</tr>
-<tr>
-<td><strong>Type returned</strong></td>
-<td>The list itself (iterable)</td>
-<td>Iterator (single use)</td>
-<td>Lazy sequence (reusable)</td>
-</tr>
-<tr>
-<td><strong>Best for</strong></td>
-<td>Just values</td>
-<td>Values and indices together</td>
-<td>Indexed Control <br> Start/skip Anywhere <br> Access neighbours</td>
-</tr>
-</tbody>
-</table>
 
 
 
@@ -2083,8 +1391,6 @@ Other names still point to the old object.</p>
     
     
       <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
-      
-        <script src="../../javascripts/note-collapse.js"></script>
       
     
   </body>
