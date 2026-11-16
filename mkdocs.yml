@@ -50,6 +50,11 @@ markdown_extensions:
   - pymdownx.tabbed:
         alternate_style: true
 
+  - pymdownx.highlight:
+        anchor_linenums: true
+        line_spans: __span
+        pygments_lang_class: true
+
   - pymdownx.superfences:
         custom_fences:
           - name: mermaid
@@ -98,8 +103,15 @@ nav:
 
       - 4. Linked List: topics/DSA/LinkedList.md
 
+      - Python Tips: topics/PythonTips.md
 
-  - PY-Knowledge and DSA Tips: topics/Pyknowledge_DSATips.md
+      - DSA Tips: topics/DSATips.md
+
+
+  - Python Tips: topics/PythonTips.md
+
+
+  - DSA Tips: topics/DSATips.md
 
 
   - Resume Tips: topics/Interviews/Resume.md
